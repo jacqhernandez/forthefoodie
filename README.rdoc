@@ -1,0 +1,55 @@
+== README
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
+
+
+Please feel free to use a different markup language if you do not plan to run
+<tt>rake doc:app</tt>.
+
+add kahit address ng resto then lagay sa dulo ng foodventures
+
+kung lalagyan ng user interaction, pede meron sila na click the dish to add it in ur to-eat list. same for resto. then pag nakainan nila, pede nila icheck tas give their own verdict
+- tas pede mag-generate ng google maps ng nakainan nila or collage of pictures eaten (yung pictures na lang namin gamitin to maintain quality charing)
+
+responsiveness plz mga font gawing vw
+
+restaurants page din? or idaan na lang sa search box ung restaurant name?, sa search box pede separated ung results by restaurant?
+
+carousel, thumbnail slider
+
+
+pede na lang pag cinlick ung resto, lalabas na sidebar ung details?? stupid web design haha
+
+
+notavaialable plage
+
+onhover ng picture, currently pupunta siya sa foodventure. pero pwede rin na papakita ung verdict, or pede na iaadd siya to ur list. pede na pupunta pa rin sa foodventure pag cinlick picture, onhover naman ay lalabs ung verdict, tas merong button sa lower right to add it sa list
+
+may tab na lang na journey namin, meaing all restos then nandun address, tas may google maps sa kanan. tas merong button na make ur own
+
+nasisira ung grid sa foodventures show pag lumagpas ung size ng comment
+
+natatago ung image pag nililitan!!
+
+at 991px -- ayusin ung sidebar sa foodventures show

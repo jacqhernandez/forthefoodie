@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  foodventure_restaurant_id: 1
+  name: MyString
+  price: 9.99
+  comment_e: MyText
+  comment_m: MyText
+  verdict: MyString
+
+two:
+  foodventure_restaurant_id: 1
+  name: MyString
+  price: 9.99
+  comment_e: MyText
+  comment_m: MyText
+  verdict: MyString

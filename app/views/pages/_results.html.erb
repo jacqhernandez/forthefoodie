@@ -1,0 +1,42 @@
+<!-- restaurant -->
+<% if params[:restaurant].present? %>
+  <% @pages.each do |r| %>
+    <% d = Dish.find(r['id']) %>
+    <div class="col-md-4 col-cards" style="padding-top: 15px; padding-bottom: 15px;">
+      <div style="width: 100%;">
+        <%= link_to d.foodventure_restaurant.foodventure, html_options = {style: "text-decoration:none;"} do %>
+          <%= image_tag d.photo.url, style: "width:100%;" %>
+        <% end %>
+      </div>
+      <div style="width: 100%; color:black; font-weight: 700; font-family: 'Roboto Slab', serif; font-size: 15px; margin-top: -50px;">
+        <span class="photos-label" style="padding:8px; background-color:white; min-height: 50px; width: 100%; display:inline-block;">
+          <%= link_to d.foodventure_restaurant.restaurant.name, results_path(restaurant: d.foodventure_restaurant.restaurant.name), html_options = {style: "text-decoration:none; background-color:transparent; color: black;", onmouseover: "this.style.color = '#FE7F83';", onmouseout:"this.style.color = 'black';"} %>
+          <br>
+          <span style="font-weight: 300;"><%= link_to d.name, foodventure_path(d.foodventure_restaurant.foodventure), html_options = {style: "text-decoration:none; background-color:transparent; color: black;", onmouseover: "this.style.color = '#FE7F83';", onmouseout:"this.style.color = 'black';"} %></span>
+          <span class="pull-right" style="font-weight: 300; ">P<%= number_to_currency(d.price, precision: 2, strip_insignificant_zeros: true, unit: "") %></span>
+        </span>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+<!-- end of restaurant -->
+<!-- others -->
+<% if params[:dish].present? || params[:cuisine].present? || params[:course].present? || params[:meal].present? || params[:price].present? %>
+  <% @pages.each do |r| %>
+    <div class="col-md-4 col-cards" style="padding-top: 15px; padding-bottom: 15px;">
+      <div style="width: 100%;">
+        <%= link_to r.foodventure_restaurant.foodventure, html_options = {style: "text-decoration:none;"} do %>
+          <%= image_tag r.photo.url, style: "width:100%;" %>
+        <% end %>
+      </div>
+      <div style="width: 100%; color:black; font-weight: 700; font-family: 'Roboto Slab', serif; font-size: 15px; margin-top: -50px;">
+        <span class="photos-label" style="padding:8px; background-color:white; min-height: 50px; width: 100%; display:inline-block;">
+          <%= link_to r.foodventure_restaurant.restaurant.name, results_path(restaurant: r.foodventure_restaurant.restaurant.name), html_options = {style: "text-decoration:none; background-color:transparent; color: black;", onmouseover: "this.style.color = '#FE7F83';", onmouseout:"this.style.color = 'black';"} %>
+          <br>
+          <span style="font-weight: 300;"><%= link_to r.name, foodventure_path(r.foodventure_restaurant.foodventure), html_options = {style: "text-decoration:none; background-color:transparent; color: black;", onmouseover: "this.style.color = '#FE7F83';", onmouseout:"this.style.color = 'black';"} %></span>
+          <span class="pull-right" style="font-weight: 300; ">P<%= number_to_currency(r.price, precision: 2, strip_insignificant_zeros: true, unit: "") %></span>
+        </span>
+      </div>
+    </div>
+  <% end %>
+<% end %>

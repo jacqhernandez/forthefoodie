@@ -1,0 +1,7 @@
+$('#pages').append("<%= j render 'results' %>");
+<% if @pages.next_page %>
+    $('.pagination').replaceWith("<%= j will_paginate @pages %>");
+    $('.pagination').hide();
+<% else %>
+    $('.pagination, #more-pages').remove();
+<% end %>

@@ -1,0 +1,7 @@
+$('#dishes').append('<%= j render @dishes %>');
+<% if @dishes.next_page %>
+    $('.pagination').replaceWith('<%= j will_paginate @dishes %>');
+    $('.pagination').hide();
+<% else %>
+    $('.pagination, #more-dishes').remove();
+<% end %>

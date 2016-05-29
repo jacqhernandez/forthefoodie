@@ -1,0 +1,164 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require twitter-bootstrap-static/sprites
+ */
+
+body {
+  margin:0;
+}
+
+.left-section, .right-section {
+  height: 100vh;
+  overflow-x:hidden;
+  overflow-y:auto;
+}
+
+.left-section {
+  background-color: #FE7F83;
+  width: 390px;
+  float: left;
+}
+
+.right-section {
+  background-color: #F2F2F2;
+  padding: 50px;
+}
+
+.foodventure::-webkit-scrollbar { width: 0 !important }
+
+input:focus { 
+    border: none;
+    outline: none;
+}
+
+select:focus{
+  outline:none;
+}
+
+::-webkit-input-placeholder {
+   padding-top: 3px;
+}
+:-moz-placeholder { /* Firefox 18- */
+   padding-top: 3px;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   padding-top: 3px;  
+}
+
+:-ms-input-placeholder {  
+   padding-top: 3px;  
+}
+
+.photos-label{
+  font-size: 18px; 
+}
+
+.btn-more{
+  background-color: #FE7F83;
+  border-radius: 0;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: #F2F2F2;
+  letter-spacing: 7px;
+  padding: 10px;
+  margin-top: 30px;
+}
+
+.btn-more:hover{
+  color: black;
+}
+
+.foodventures-sidebar-description{
+  margin-right: -20px;
+}
+
+.foodventures-show-thumb{
+  width: 100%;
+}
+
+@media screen and (min-width: 1002px) and (max-width: 1100px) {
+  .photos-label {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 1560px){
+  .col-cards {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 1370px){
+  .foodventure{
+    width: 60%;
+  }
+  .foodventure-show-sidebar{
+    width: 40%;
+  }
+  .foodventure-show-dish{
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1200px){
+  .foodventure{
+    width: 50%;
+  }
+  .foodventure-show-sidebar{
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 1060px){
+  .foodventure{
+    width: 100%;
+  }
+  .foodventure-show-sidebar{
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1002px){
+  .col-cards {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 991px){
+  .col-cards {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 820px){
+  .left-section {
+    width: 100%;
+    float:none;
+    overflow-x:hidden;
+  }
+}
+
+
+
+
+/*
+@media screen and (max-width: 734px){
+  .about-description{
+
+  }
+}
+*/

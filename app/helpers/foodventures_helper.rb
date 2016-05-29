@@ -1,0 +1,2 @@
+module FoodventuresHelper
+end

@@ -1,0 +1,7 @@
+$('#foodventures').append('<%= j render @foodventures %>');
+<% if @foodventures.next_page %>
+    $('.pagination').replaceWith('<%= j will_paginate @foodventures %>');
+    $('.pagination').hide();
+<% else %>
+    $('.pagination, #more-foodventures').remove();
+<% end %>

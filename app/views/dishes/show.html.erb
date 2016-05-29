@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Foodventure restaurant:</strong>
+  <%= @dish.foodventure_restaurant_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @dish.name %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @dish.price %>
+</p>
+
+<p>
+  <strong>Comment e:</strong>
+  <%= @dish.comment_e %>
+</p>
+
+<p>
+  <strong>Comment m:</strong>
+  <%= @dish.comment_m %>
+</p>
+
+<p>
+  <strong>Verdict:</strong>
+  <%= @dish.verdict %>
+</p>
+
+<p>
+  <%= image_tag @dish.photo.url, style: "width:50vw;" %>
+</p>
+
+<%= link_to 'Edit', edit_dish_path(@dish) %> |
+<%= link_to 'Back', dishes_path %>
