@@ -30,7 +30,7 @@ class PagesController < ApplicationController
     elsif params[:dish].present?
       @category = "dish"
       @query = params[:dish]
-      @pages = Dish.where("(name LIKE ?) OR (tag LIKE ?)", "#{@query}%", "%#{@query}%").paginate(page: params[:page], per_page: 9).order('created_at DESC')
+      @pages = Dish.where("(name ILIKE ?) OR (tag ILIKE ?)", "%#{@query}%", "%#{@query}%").paginate(page: params[:page], per_page: 9).order('created_at DESC')
     elsif params[:price].present?
       @category = "price range"
       if params[:price] == "1"
