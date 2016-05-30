@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160512143803) do
+ActiveRecord::Schema.define(version: 20160512143526) do
 
   create_table "dishes", force: :cascade do |t|
     t.integer  "foodventure_restaurant_id"
@@ -24,12 +24,9 @@ ActiveRecord::Schema.define(version: 20160512143803) do
     t.string   "course"
     t.string   "meal"
     t.string   "tag"
+    t.string   "filename"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.integer  "photo_file_size"
-    t.datetime "photo_updated_at"
   end
 
   create_table "foodventure_restaurants", force: :cascade do |t|
