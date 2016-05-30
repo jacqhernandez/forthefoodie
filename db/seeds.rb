@@ -11,7 +11,7 @@ Restaurant.create(name: "Chili's", address: "1639 B Penafrancia St. Brgy. Valenz
 Restaurant.create(name: "Mamou", address: "1639 B Penafrancia St. Brgy. Valenzuela Makati City")
 Restaurant.create(name: "Your Local", address: "1639 B Penafrancia St. Brgy. Valenzuela Makati City")
 Restaurant.create(name: "Wildflour Cafe + Bakery", address: "1639 B Penafrancia St. Brgy. Valenzuela Makati City")
-Restaurant.create(name: "Local, Chili's", address: "1639 B Penafrancia St. Brgy. Valenzuela Makati City")
+Restaurant.create(name: "Local", address: "1639 B Penafrancia St. Brgy. Valenzuela Makati City")
 Restaurant.create(name: "The Wholesome Table", address: "1639 B Penafrancia St. Brgy. Valenzuela Makati City")
 Foodventure.create(date: Date.new(2015,1,12))
 Foodventure.create(date: Date.new(2015,11,5))
