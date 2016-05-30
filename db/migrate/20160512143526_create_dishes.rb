@@ -11,6 +11,7 @@ class CreateDishes < ActiveRecord::Migration
       t.string :course
       t.string :meal
       t.string :tag
+      t.string :filename
 
       t.timestamps null: false
     end

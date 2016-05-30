@@ -33,7 +33,7 @@
                 <div class="col-md-6 foodventure-show-dish">
                   <h1 style="margin: 0; padding: 0; color: black; font-family: 'Roboto Slab', serif; font-weight: 300; margin-top: 50px; font-size: 18px;">
                     <span style="font-weight: 400;"><%= link_to d.foodventure_restaurant.restaurant.name, results_path(restaurant: d.foodventure_restaurant.restaurant.name), html_options = {style: "text-decoration:none; background-color:transparent; color: black;", onmouseover: "this.style.color = '#FE7F83';", onmouseout:"this.style.color = 'black';"} %><br></span> <%= d.name %> (P<%= number_to_currency(d.price, precision: 2, strip_insignificant_zeros: true, unit: "") %>)<br>
-                    <%= image_tag d.photo.url, style: "width:100%; margin-top: 5px;" %><br>
+                    <%= image_tag "http://s3.amazonaws.com/forthefoodie/#{d.filename}", style: "width:100%; margin-top: 5px;" %><br>
                     <span style="font-size: 16px;">Eylla: <%= d.comment_e %><br>
                     Michelle: <%= d.comment_m %></span>
                   </h1>
@@ -66,7 +66,7 @@
                   </div>
                   <div class="col-xs-5 foodventures-sidebar-image">
                     <%= link_to f, html_options = {style: "text-decoration:none;"} do %>
-                      <span onmouseover="document.getElementById('<%= f.id %>fshow1').style.color='#7F7F7F';document.getElementById('<%= f.id %>fshow2').style.color='#FE7F83';document.getElementById('<%= f.id %>fshow3').style.color='#FE7F83';" onmouseout="document.getElementById('<%= f.id %>fshow1').style.color='#FE7F83';document.getElementById('<%= f.id %>fshow2').style.color='#7F7F7F';document.getElementById('<%= f.id %>fshow3').style.color='#7F7F7F';"><%= image_tag f.foodventure_restaurants.first.dishes.first.photo.url, style: "", class: "foodventures-show-thumb" %></span>
+                      <span onmouseover="document.getElementById('<%= f.id %>fshow1').style.color='#7F7F7F';document.getElementById('<%= f.id %>fshow2').style.color='#FE7F83';document.getElementById('<%= f.id %>fshow3').style.color='#FE7F83';" onmouseout="document.getElementById('<%= f.id %>fshow1').style.color='#FE7F83';document.getElementById('<%= f.id %>fshow2').style.color='#7F7F7F';document.getElementById('<%= f.id %>fshow3').style.color='#7F7F7F';"><%= image_tag "http://s3.amazonaws.com/forthefoodie/#{f.foodventure_restaurants.first.dishes.first.filename}", style: "", class: "foodventures-show-thumb" %></span>
                     <% end %>
                   </div>
                 </div>
