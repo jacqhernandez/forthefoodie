@@ -11,9 +11,9 @@ class PagesController < ApplicationController
       @category = "restaurant"
       @query = params[:restaurant]
       #for mysql
-      sql = "SELECT a.*, CASE WHEN upper(c.name) = upper('#{@query}') THEN 2 ELSE 1 END as score FROM dishes a LEFT JOIN foodventure_restaurants b ON a.foodventure_restaurant_id = b.id LEFT JOIN restaurants c ON b.restaurant_id = c.id WHERE c.name LIKE '%#{@query}%' ORDER BY score DESC;"
+      #sql = "SELECT a.*, CASE WHEN upper(c.name) = upper('#{@query}') THEN 2 ELSE 1 END as score FROM dishes a LEFT JOIN foodventure_restaurants b ON a.foodventure_restaurant_id = b.id LEFT JOIN restaurants c ON b.restaurant_id = c.id WHERE c.name LIKE '%#{@query}%' ORDER BY score DESC;"
       #for postgresql
-      #sql = "SELECT a.*, CASE WHEN upper(c.name) = upper('#{@query}') THEN 2 ELSE 1 END AS score FROM dishes a LEFT JOIN foodventure_restaurants b ON a.foodventure_restaurant_id = b.id LEFT JOIN restaurants c ON b.restaurant_id = c.id WHERE c.name ILIKE '%#{@query}%' ORDER BY score DESC;"
+      sql = "SELECT a.*, CASE WHEN upper(c.name) = upper('#{@query}') THEN 2 ELSE 1 END AS score FROM dishes a LEFT JOIN foodventure_restaurants b ON a.foodventure_restaurant_id = b.id LEFT JOIN restaurants c ON b.restaurant_id = c.id WHERE c.name ILIKE '%#{@query}%' ORDER BY score DESC;"
       @pages = ActiveRecord::Base.connection.execute(sql).paginate(page: params[:page], per_page: 9)
     elsif params[:cuisine].present?
       @category = "cuisine"
