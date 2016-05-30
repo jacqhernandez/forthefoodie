@@ -12,8 +12,8 @@ class PagesController < ApplicationController
       @query = params[:restaurant]
       #for postgresql
       #sql = "SELECT a.*, CASE WHEN upper(c.name) = upper('#{@query}') THEN 2 ELSE 1 END AS score FROM dishes a LEFT JOIN foodventure_restaurants b ON a.foodventure_restaurant_id = b.id LEFT JOIN restaurants c ON b.restaurant_id = c.id WHERE c.name ILIKE '%#{@query}%' ORDER BY score DESC;"
-      dishes1 = Dish.joins(:foodventure_restaurant).merge(FoodventureRestaurant.joins(:restaurant).merge(Restaurant.where('lower(restaurants.name) = ?', @query.downcase)))
-      dishes2 = Dish.joins(:foodventure_restaurant).merge(FoodventureRestaurant.joins(:restaurant).merge(Restaurant.where("restaurants.name LIKE ?", "%#{@query}%")))
+      dishes1 = Dish.joins(:foodventure_restaurant).merge(FoodventureRestaurant.joins(:restaurant).merge(Restaurant.where("lower(restaurants.name) = ?", @query.downcase)))
+      dishes2 = Dish.joins(:foodventure_restaurant).merge(FoodventureRestaurant.joins(:restaurant).merge(Restaurant.where("restaurants.name ILIKE ?", "%#{@query}%")))
       @pages = ((dishes1 + dishes2).uniq).paginate(page: params[:page], per_page: 9)
     elsif params[:cuisine].present?
       @category = "cuisine"
