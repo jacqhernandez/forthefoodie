@@ -1,22 +1,19 @@
-<body> 
-  <div>
-    <%= render 'pages/sidebar' %>
-    <div class="right-section">  
-      <div style="margin:-20px;">
-        <h1 style="margin:0; width: 100%; color:black; font-weight: 700; font-family: 'Roboto Slab', serif; font-size: 60px; color: #7F7F7F; text-align:right;">FOR THE <span style="color: #FE7F83;">FOODIE</span></h1>
-        <div style="margin-top: 30px;" id="foodventures">
-          <% @count = @foodventures.count %>
-          <%= render @foodventures %>
-        </div>
-        <div id="foodventures-paginate">
-          <%= will_paginate %>
-        </div>
-        <% if @foodventures.next_page %>
-          <center><div id="more-foodventures" class="btn btn-more" style="width: 425px;">MORE FOODVENTURES</div></center>
-        <% end %>
+<div>
+  <%= render 'pages/sidebar' %>
+  <div class="right-section">  
+    <div style="margin:-20px;">
+      <h1 class="foodventures-header" style="margin:0; width: 100%; color:black; font-weight: 700; font-family: 'Roboto Slab', serif; color: #7F7F7F; text-align:right;">FOR THE <span style="color: #FE7F83;">FOODIE</span></h1>
+      <div style="margin-top: 30px;" id="foodventures">
+        <% @count = @foodventures.count %>
+        <%= render @foodventures %>
       </div>
+      <div id="foodventures-paginate">
+        <%= will_paginate %>
+      </div>
+      <% if @foodventures.next_page %>
+        <center><div id="more-foodventures" class="btn btn-more">MORE FOODVENTURES</div></center>
+      <% end %>
     </div>
   </div>
-</body>
-
+</div>
 

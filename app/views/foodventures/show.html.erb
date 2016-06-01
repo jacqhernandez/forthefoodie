@@ -1,83 +1,79 @@
-<body> 
-  <div>
-    <%= render 'pages/sidebar' %>
-    <div class="right-section">
-      <div style="margin:-20px;">
-        <h1 style="margin:0; width: 100%; color:black; font-weight: 700; font-family: 'Roboto Slab', serif; font-size: 60px; color: #7F7F7F; text-align:right;">FOR THE <span style="color: #FE7F83;">FOODIE</span></h1>
-        <div class="row">
-          <div class="col-md-8 foodventure" style="height: 80vh; overflow-y: auto; margin-top: 30px;">
-            <% count1 = 0 %>
-            <% Foodventure.all.each do |f| %>
-              <% count1 = count1 + 1 %>
-              <% break if f.id == @foodventure.id %>
+<div>
+  <%= render 'pages/sidebar' %>
+  <div class="right-section">
+    <div style="margin:-20px;">
+      <h1 style="margin:0; width: 100%; color:black; font-weight: 700; font-family: 'Roboto Slab', serif; font-size: 60px; color: #7F7F7F; text-align:right;">FOR THE <span style="color: #FE7F83;">FOODIE</span></h1>
+      <div class="row">
+        <div class="col-md-8 foodventure" style="height: 80vh; overflow-y: auto; margin-top: 30px;">
+          <% count1 = 0 %>
+          <% Foodventure.all.each do |f| %>
+            <% count1 = count1 + 1 %>
+            <% break if f.id == @foodventure.id %>
+          <% end %>
+          <h1 style="margin: 0; padding: 0; color: #FE7F83; font-family: 'Roboto Slab', serif; font-size: 25px; font-weight: 700;">
+            Foodventures <%= count1 %>:
+            <% @foodventure.foodventure_restaurants.each_with_index do |fr, index| %>
+              <span style="color: #7F7F7F;">
+                <% if index == 0 %>
+                  <%= fr.restaurant.name %>
+                <% else %>
+                  , <%= fr.restaurant.name %>
+                <% end %>
+              </span>
             <% end %>
-            <h1 style="margin: 0; padding: 0; color: #FE7F83; font-family: 'Roboto Slab', serif; font-size: 25px; font-weight: 700;">
-              Foodventures <%= count1 %>:
-              <% @foodventure.foodventure_restaurants.each_with_index do |fr, index| %>
-                <span style="color: #7F7F7F;">
-                  <% if index == 0 %>
-                    <%= fr.restaurant.name %>
-                  <% else %>
-                    , <%= fr.restaurant.name %>
+          </h1>
+          <p style="margin: 0; padding: 0; color: black; font-family: 'Roboto Slab', serif; font-size: 16px; font-weight: 300;"><%= @foodventure.date.strftime("%B %e, %Y") %></p>
+          <% total_dishes = [] %>
+          <% @foodventure.foodventure_restaurants.each do |fr| %>
+            <% total_dishes = total_dishes + fr.dishes %>
+          <% end %>
+          <div class="row">
+            <% total_dishes.each do |d| %>
+              <div class="col-md-6 foodventure-show-dish">
+                <h1 style="margin: 0; padding: 0; color: black; font-family: 'Roboto Slab', serif; font-weight: 300; margin-top: 50px; font-size: 18px;">
+                  <span style="font-weight: 400;"><%= link_to d.foodventure_restaurant.restaurant.name, results_path(restaurant: d.foodventure_restaurant.restaurant.name), html_options = {style: "text-decoration:none; background-color:transparent; color: black;", onmouseover: "this.style.color = '#FE7F83';", onmouseout:"this.style.color = 'black';"} %><br></span> <%= d.name %> (P<%= number_to_currency(d.price, precision: 2, strip_insignificant_zeros: true, unit: "") %>)<br>
+                  <%= image_tag "http://s3.amazonaws.com/forthefoodie/#{d.filename}", style: "width:100%; margin-top: 5px;" %><br>
+                  <span style="font-size: 16px;">Eylla: <%= d.comment_e %><br>
+                  Michelle: <%= d.comment_m %></span>
+                </h1>
+              </div>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="col-md-4 foodventure-show-sidebar" style="height: 82vh; overflow-y: auto; overflow-x:hidden; margin-top: 20px; padding-right: 0px;">
+          <% count2 = Foodventure.all.count + 1 %>
+          <% Foodventure.all.order('CREATED_AT desc').each do |f| %>
+            <% count2 = count2 - 1 %>
+            <% if count2 != count1 %>
+              <div class="row" style="margin-top: 15px;">
+                <div class="col-xs-7 foodventures-sidebar-description">
+                  <%= link_to f, html_options = {style: "text-decoration:none; background-color:transparent;"} do %>
+                    <h1 class="foodventures-sidebar-description-label" style="margin: 0; padding: 0; color: #FE7F83; font-family: 'Roboto Slab', serif; font-size: 19px; font-weight: 700; text-align:right;" onmouseover="document.getElementById('<%= f.id %>fshow1').style.color='#7F7F7F';document.getElementById('<%= f.id %>fshow2').style.color='#FE7F83';document.getElementById('<%= f.id %>fshow3').style.color='#FE7F83';" onmouseout="document.getElementById('<%= f.id %>fshow1').style.color='#FE7F83';document.getElementById('<%= f.id %>fshow2').style.color='#7F7F7F';document.getElementById('<%= f.id %>fshow3').style.color='#7F7F7F';">
+                      <span id="<%= f.id %>fshow1">Foodventures <%= count2 %>:</span><br>
+                      <% f.foodventure_restaurants.each_with_index do |fr, index| %>
+                        <span style="color: #7F7F7F;">
+                          <% if index == 0 %>
+                            <span id="<%= f.id %>fshow2"><%= fr.restaurant.name %></span>
+                          <% else %>
+                            <span id="<%= f.id %>fshow3">, <%= fr.restaurant.name %></span>
+                          <% end %>
+                        </span>
+                      <% end %>
+                    </h1>
                   <% end %>
-                </span>
-              <% end %>
-            </h1>
-            <p style="margin: 0; padding: 0; color: black; font-family: 'Roboto Slab', serif; font-size: 16px; font-weight: 300;"><%= @foodventure.date.strftime("%B %e, %Y") %></p>
-            <% total_dishes = [] %>
-            <% @foodventure.foodventure_restaurants.each do |fr| %>
-              <% total_dishes = total_dishes + fr.dishes %>
-            <% end %>
-            <div class="row">
-              <% total_dishes.each do |d| %>
-                <div class="col-md-6 foodventure-show-dish">
-                  <h1 style="margin: 0; padding: 0; color: black; font-family: 'Roboto Slab', serif; font-weight: 300; margin-top: 50px; font-size: 18px;">
-                    <span style="font-weight: 400;"><%= link_to d.foodventure_restaurant.restaurant.name, results_path(restaurant: d.foodventure_restaurant.restaurant.name), html_options = {style: "text-decoration:none; background-color:transparent; color: black;", onmouseover: "this.style.color = '#FE7F83';", onmouseout:"this.style.color = 'black';"} %><br></span> <%= d.name %> (P<%= number_to_currency(d.price, precision: 2, strip_insignificant_zeros: true, unit: "") %>)<br>
-                    <%= image_tag "http://s3.amazonaws.com/forthefoodie/#{d.filename}", style: "width:100%; margin-top: 5px;" %><br>
-                    <span style="font-size: 16px;">Eylla: <%= d.comment_e %><br>
-                    Michelle: <%= d.comment_m %></span>
-                  </h1>
                 </div>
-              <% end %>
-            </div>
-          </div>
-
-          <div class="col-md-4 foodventure-show-sidebar" style="height: 82vh; overflow-y: auto; overflow-x:hidden; margin-top: 20px; padding-right: 0px;">
-            <% count2 = Foodventure.all.count + 1 %>
-            <% Foodventure.all.order('CREATED_AT desc').each do |f| %>
-              <% count2 = count2 - 1 %>
-              <% if count2 != count1 %>
-                <div class="row" style="margin-top: 15px;">
-                  <div class="col-xs-7 foodventures-sidebar-description">
-                    <%= link_to f, html_options = {style: "text-decoration:none; background-color:transparent;"} do %>
-                      <h1 class="foodventures-sidebar-description-label" style="margin: 0; padding: 0; color: #FE7F83; font-family: 'Roboto Slab', serif; font-size: 19px; font-weight: 700; text-align:right;" onmouseover="document.getElementById('<%= f.id %>fshow1').style.color='#7F7F7F';document.getElementById('<%= f.id %>fshow2').style.color='#FE7F83';document.getElementById('<%= f.id %>fshow3').style.color='#FE7F83';" onmouseout="document.getElementById('<%= f.id %>fshow1').style.color='#FE7F83';document.getElementById('<%= f.id %>fshow2').style.color='#7F7F7F';document.getElementById('<%= f.id %>fshow3').style.color='#7F7F7F';">
-                        <span id="<%= f.id %>fshow1">Foodventures <%= count2 %>:</span><br>
-                        <% f.foodventure_restaurants.each_with_index do |fr, index| %>
-                          <span style="color: #7F7F7F;">
-                            <% if index == 0 %>
-                              <span id="<%= f.id %>fshow2"><%= fr.restaurant.name %></span>
-                            <% else %>
-                              <span id="<%= f.id %>fshow3">, <%= fr.restaurant.name %></span>
-                            <% end %>
-                          </span>
-                        <% end %>
-                      </h1>
-                    <% end %>
-                  </div>
-                  <div class="col-xs-5 foodventures-sidebar-image">
-                    <%= link_to f, html_options = {style: "text-decoration:none;"} do %>
-                      <span onmouseover="document.getElementById('<%= f.id %>fshow1').style.color='#7F7F7F';document.getElementById('<%= f.id %>fshow2').style.color='#FE7F83';document.getElementById('<%= f.id %>fshow3').style.color='#FE7F83';" onmouseout="document.getElementById('<%= f.id %>fshow1').style.color='#FE7F83';document.getElementById('<%= f.id %>fshow2').style.color='#7F7F7F';document.getElementById('<%= f.id %>fshow3').style.color='#7F7F7F';"><%= image_tag "http://s3.amazonaws.com/forthefoodie/#{f.foodventure_restaurants.first.dishes.first.filename}", style: "", class: "foodventures-show-thumb" %></span>
-                    <% end %>
-                  </div>
+                <div class="col-xs-5 foodventures-sidebar-image">
+                  <%= link_to f, html_options = {style: "text-decoration:none;"} do %>
+                    <span onmouseover="document.getElementById('<%= f.id %>fshow1').style.color='#7F7F7F';document.getElementById('<%= f.id %>fshow2').style.color='#FE7F83';document.getElementById('<%= f.id %>fshow3').style.color='#FE7F83';" onmouseout="document.getElementById('<%= f.id %>fshow1').style.color='#FE7F83';document.getElementById('<%= f.id %>fshow2').style.color='#7F7F7F';document.getElementById('<%= f.id %>fshow3').style.color='#7F7F7F';"><%= image_tag "http://s3.amazonaws.com/forthefoodie/#{f.foodventure_restaurants.first.dishes.first.filename}", style: "", class: "foodventures-show-thumb" %></span>
+                  <% end %>
                 </div>
-              <% end %>
+              </div>
             <% end %>
+          <% end %>
 
-          </div>
         </div>
       </div>
     </div>
   </div>
-</body>
-
-
+</div>

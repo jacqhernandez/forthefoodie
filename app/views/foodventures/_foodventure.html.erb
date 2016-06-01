@@ -1,6 +1,6 @@
 <div style="margin-top: 20px;">
   <%= link_to foodventure, html_options = {style: "text-decoration:none; background-color:transparent;"} do %>
-    <h1 style="display: inline-block; margin: 0; padding: 0; color: #FE7F83; font-family: 'Roboto Slab', serif; font-size: 22px; font-weight: 700;" onmouseover="document.getElementById('<%= foodventure.id %>findex1').style.color='#7F7F7F';document.getElementById('<%= foodventure.id %>findex2').style.color='#FE7F83';document.getElementById('<%= foodventure.id %>findex3').style.color='#FE7F83';" onmouseout="document.getElementById('<%= foodventure.id %>findex1').style.color='#FE7F83';document.getElementById('<%= foodventure.id %>findex2').style.color='#7F7F7F';document.getElementById('<%= foodventure.id %>findex3').style.color='#7F7F7F';">
+    <h1 class="foodventures-card-header" style="display: inline-block; margin: 0; padding: 0; color: #FE7F83; font-family: 'Roboto Slab', serif; font-weight: 700;" onmouseover="document.getElementById('<%= foodventure.id %>findex1').style.color='#7F7F7F';document.getElementById('<%= foodventure.id %>findex2').style.color='#FE7F83';document.getElementById('<%= foodventure.id %>findex3').style.color='#FE7F83';" onmouseout="document.getElementById('<%= foodventure.id %>findex1').style.color='#FE7F83';document.getElementById('<%= foodventure.id %>findex2').style.color='#7F7F7F';document.getElementById('<%= foodventure.id %>findex3').style.color='#7F7F7F';">
       <span id="<%= foodventure.id %>findex1">Foodventures 
         <span id="<%= foodventure.id %>foodventure-count">
           <% if @count.present? %>
@@ -38,7 +38,7 @@
           <%= image_tag "http://s3.amazonaws.com/forthefoodie/#{d.filename}", style: "width:100%;" %>
         <% end %>
       </div>
-      <div style="width: 100%; color:black; font-weight: 700; font-family: 'Roboto Slab', serif; font-size: 15px; margin-top: -50px;">
+      <div style="width: 100%; color:black; font-weight: 700; font-family: 'Roboto Slab', serif;">
         <span class="photos-label" style="padding:8px; background-color:white; min-height: 50px; width: 100%; display:inline-block; ">
           <%= link_to d.foodventure_restaurant.restaurant.name, results_path(restaurant: d.foodventure_restaurant.restaurant.name), html_options = {style: "text-decoration:none; background-color:transparent; color: black;", onmouseover: "this.style.color = '#FE7F83';", onmouseout:"this.style.color = 'black';"} %>
           <br>

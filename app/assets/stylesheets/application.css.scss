@@ -17,12 +17,40 @@
 
 body {
   margin:0;
+  padding:0;
 }
 
 .left-section, .right-section {
   height: 100vh;
   overflow-x:hidden;
   overflow-y:auto;
+}
+
+.right-section {
+  background-color: #F2F2F2;
+  padding: 50px;
+}
+
+.foodventure::-webkit-scrollbar { width: 0 !important }
+
+.photos-label{
+  font-size: 18px; 
+}
+
+.btn-more{
+  background-color: #FE7F83;
+  border-radius: 0;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: #F2F2F2;
+  letter-spacing: 7px;
+  padding: 10px;
+  margin-top: 30px;
+}
+
+.btn-more:hover{
+  color: black;
 }
 
 /* ----- SIDEBAR ----- */
@@ -52,57 +80,48 @@ body {
 .sidebar-link2{
   margin-top: 30px;
 }
-
-.right-section {
-  background-color: #F2F2F2;
-  padding: 50px;
-}
-
-.foodventure::-webkit-scrollbar { width: 0 !important }
-
 input:focus { 
     border: none;
     outline: none;
 }
-
 select:focus{
   outline:none;
 }
-
 ::-webkit-input-placeholder {
    padding-top: 3px;
 }
 :-moz-placeholder { /* Firefox 18- */
    padding-top: 3px;  
 }
-
 ::-moz-placeholder {  /* Firefox 19+ */
    padding-top: 3px;  
 }
-
 :-ms-input-placeholder {  
    padding-top: 3px;  
 }
 
-.photos-label{
-  font-size: 18px; 
+/* ----- FOODVENTURES INDEX ---- */
+
+.foodventures-header{
+  font-size: 60px; 
+}
+.foodventures-card-header{
+  font-size: 22px;
+}
+#more-foodventures{
+  width: 425px;
 }
 
-.btn-more{
-  background-color: #FE7F83;
-  border-radius: 0;
-  font-family: 'Roboto Slab', serif;
-  font-weight: 700;
-  font-size: 20px;
-  color: #F2F2F2;
-  letter-spacing: 7px;
-  padding: 10px;
-  margin-top: 30px;
+/* ----- DISHES INDEX ---- */
+#more-dishes{
+  width: 300px;
 }
 
-.btn-more:hover{
-  color: black;
+/* ----- RESULTS ---- */
+#more-pages{
+  width: 300px;
 }
+
 
 .foodventures-sidebar-description{
   margin-right: -20px;
@@ -111,6 +130,8 @@ select:focus{
 .foodventures-show-thumb{
   width: 100%;
 }
+
+/* ------ WEB RESPONSIVE ----- */
 
 @media screen and (min-width: 1002px) and (max-width: 1100px) {
   .photos-label {
@@ -191,7 +212,7 @@ select:focus{
   /* ----- SIDEBAR ----- */
 
   .sidebar-header{
-    font-size: 20.5px;
+    font-size: 20px;
   }
   .sidebar-search{
     font-size: 14px;
@@ -226,6 +247,15 @@ select:focus{
     height: 100vh;
   }
 
+  .photos-label{
+    font-size: 15px;
+  }
+  .btn-more{
+    font-size: 13px;
+    letter-spacing: 3px;
+    margin-top: 10px;
+  }
+
   /* ----- SIDEBAR ----- */
 
   .sidebar-header{
@@ -236,17 +266,54 @@ select:focus{
     margin-top: 20px;
   }
   .sidebar-links{
-    font-size: 18px;
+    font-size: 16px;
     margin-top: 25px;
   }
   .sidebar-category, .sidebar-input{
     height: 40px;
   }
   .sidebar-link1{
-    margin-top: 30px;
-  }
-  .sidebar-link2{
     margin-top: 20px;
   }
+  .sidebar-link2{
+    margin-top: 15px;
+  }
+  ::-webkit-input-placeholder {
+     padding-top: 1px;
+  }
+  :-moz-placeholder { /* Firefox 18- */
+     padding-top: 1px;  
+  }
+
+  ::-moz-placeholder {  /* Firefox 19+ */
+     padding-top: 1px;  
+  }
+
+  :-ms-input-placeholder {  
+     padding-top: 1px;  
+  }
+
+  /* ----- FOODVENTURES INDEX ---- */
+
+  .foodventures-header{
+    font-size: 20px; 
+  }
+  .foodventures-card-header{
+    font-size: 14px;
+  }
+  #more-foodventures{
+    width: 100%;
+  }
+
+  /* ----- DISHES INDEX ---- */
+  #more-dishes{
+    width: 100%;
+  }
+
+  /* ----- PAGES INDEX ---- */
+  #more-pages{
+    width: 100%;
+  }
+
 
 }
