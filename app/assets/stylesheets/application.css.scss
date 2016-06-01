@@ -18,6 +18,7 @@
 body {
   margin:0;
   padding:0;
+  min-height: 100vh;
 }
 
 .left-section, .right-section {
@@ -212,7 +213,7 @@ select:focus{
     width: 100%;
     float:none;
     overflow-x:hidden;
-    min-height: 480px;
+    min-height: 100vh;
   }
 
   .photos-label{
