@@ -210,27 +210,73 @@ select:focus{
     height: 100vh;
   }
 
+  .photos-label{
+    font-size: 15px;
+  }
+  .btn-more{
+    font-size: 13px;
+    letter-spacing: 3px;
+    margin-top: 10px;
+  }
+
   /* ----- SIDEBAR ----- */
 
   .sidebar-header{
     font-size: 20px;
+    margin-top: 0;
   }
   .sidebar-search{
     font-size: 14px;
     margin-top: 20px;
   }
   .sidebar-links{
-    font-size: 18px;
+    font-size: 16px;
     margin-top: 25px;
   }
   .sidebar-category, .sidebar-input{
     height: 40px;
   }
   .sidebar-link1{
-    margin-top: 30px;
+    margin-top: 20px;
   }
   .sidebar-link2{
-    margin-top: 20px;
+    margin-top: 15px;
+  }
+  ::-webkit-input-placeholder {
+     padding-top: 1px;
+  }
+  :-moz-placeholder { /* Firefox 18- */
+     padding-top: 1px;  
+  }
+
+  ::-moz-placeholder {  /* Firefox 19+ */
+     padding-top: 1px;  
+  }
+
+  :-ms-input-placeholder {  
+     padding-top: 1px;  
+  }
+
+  /* ----- FOODVENTURES INDEX ---- */
+
+  .foodventures-header{
+    font-size: 20px; 
+  }
+  .foodventures-card-header{
+    font-size: 14px;
+  }
+  #more-foodventures{
+    width: 100%;
+  }
+
+  /* ----- DISHES INDEX ---- */
+  #more-dishes{
+    width: 100%;
+  }
+
+  /* ----- PAGES INDEX ---- */
+  #more-pages{
+    width: 100%;
   }
 
 }
