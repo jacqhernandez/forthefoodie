@@ -25,10 +25,32 @@ body {
   overflow-y:auto;
 }
 
+/* ----- SIDEBAR ----- */
+
 .left-section {
   background-color: #FE7F83;
   width: 390px;
   float: left;
+}
+.sidebar-header{
+  font-size: 28px;
+}
+.sidebar-search{
+  font-size: 18px;
+  margin-top: 50px;
+}
+.sidebar-links{
+  font-size: 22px;
+  margin-top: 40px;
+}
+.sidebar-category, .sidebar-input{
+  height: 50px;
+}
+.sidebar-link1{
+  margin-top: 40px;
+}
+.sidebar-link2{
+  margin-top: 30px;
 }
 
 .right-section {
@@ -164,6 +186,44 @@ select:focus{
     float:none;
     overflow-x:hidden;
     height:100%;
+  }
+
+}
+
+/* ----------- WEB TRIAL FOR iPhone 4 and 4S ----------- */
+
+@media only screen 
+  and (min-width: 320px) 
+  and (max-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+  .left-section{
+    width: 100%;
+    float:none;
+    overflow-x:hidden;
+    height: 100vh;
+  }
+
+  /* ----- SIDEBAR ----- */
+
+  .sidebar-header{
+    font-size: 20.5px;
+  }
+  .sidebar-search{
+    font-size: 14px;
+    margin-top: 20px;
+  }
+  .sidebar-links{
+    font-size: 18px;
+    margin-top: 25px;
+  }
+  .sidebar-category, .sidebar-input{
+    height: 40px;
+  }
+  .sidebar-link1{
+    margin-top: 30px;
+  }
+  .sidebar-link2{
+    margin-top: 20px;
   }
 
 }

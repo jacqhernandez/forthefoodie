@@ -1,8 +1,8 @@
 <div class="left-section" style="padding: 40px;">
-    <div style="margin-top: 20px; font-weight: 700; font-family: 'Roboto Slab', serif; font-size: 28px; color: #F2F2F2; letter-spacing: 5px;">FOR THE FOODIE</div>
-      <div style="margin-top: 50px;">
+    <div class="sidebar-header" style="margin-top: 20px; font-weight: 700; font-family: 'Roboto Slab', serif; color: #F2F2F2; letter-spacing: 5px;">FOR THE FOODIE</div>
+      <div class="sidebar-search">
           <div style="padding:0; margin:0; margin-top: 30px;">
-            <select id="category" name="category" placeholder="meh" style="background-color: #F2F2F2; height: 50px; width: 100%; border:none; font-weight: 400; font-family: 'Roboto Slab', serif; font-size: 18px;padding-left:15px; padding-right: 15px; color: #7F7F7F;">
+            <select class="sidebar-category" id="category" name="category" placeholder="meh" style="background-color: #F2F2F2; width: 100%; border:none; font-weight: 400; font-family: 'Roboto Slab', serif; padding-left:15px; padding-right: 15px; color: #7F7F7F;">
               <option value="" selected disabled>Search dish by:</option>
               <option value="name">Name</option>
               <option value="restaurant">Restaurant</option>
@@ -14,13 +14,13 @@
           </div>
           <div style="padding:0; margin:0; margin-top: 18px;">
             <form action="/results" id="fsearch1">
-              <input id="dish" name="dish" placeholder="Search dish" style="background-color: #F2F2F2; height: 50px; width: 100%; border:none; color: #7F7F7F; font-weight: 400; font-family: 'Roboto Slab', serif; font-size: 18px;padding-left:18px; padding-right: 18px;">
+              <input class="sidebar-input" id="dish" name="dish" placeholder="Search dish" style="background-color: #F2F2F2; width: 100%; border:none; color: #7F7F7F; font-weight: 400; font-family: 'Roboto Slab', serif; padding-left:18px; padding-right: 18px;">
             </form>
             <form action="/results" id="fsearch2">
-              <input class="cdropdown hidden" id="restaurant" name="restaurant" placeholder="Search dish by restaurant" style="background-color: #F2F2F2; height: 50px; width: 100%; border:none; color: #7F7F7F; font-weight: 400; font-family: 'Roboto Slab', serif; font-size: 18px;padding-left:18px; padding-right: 18px;">
+              <input class="sidebar-input cdropdown hidden" id="restaurant" name="restaurant" placeholder="Search dish by restaurant" style="background-color: #F2F2F2; width: 100%; border:none; color: #7F7F7F; font-weight: 400; font-family: 'Roboto Slab', serif; padding-left:18px; padding-right: 18px;">
             </form>
             <form action="/results">
-              <select class="cdropdown hidden" id="course" name="course" style="background-color: #F2F2F2; height: 50px; width: 100%; border:none; font-weight: 400; font-family: 'Roboto Slab', serif; font-size: 18px;padding-left:15px; padding-right: 15px; color: #7F7F7F;" onchange="this.form.submit();">
+              <select class="sidebar-input cdropdown hidden" id="course" name="course" style="background-color: #F2F2F2; width: 100%; border:none; font-weight: 400; font-family: 'Roboto Slab', serif; padding-left:15px; padding-right: 15px; color: #7F7F7F;" onchange="this.form.submit();">
                 <option value="" selected disabled>Search dish by course:</option>
                 <option value="appetizer">Appetizer</option>
                 <option value="entree">Entree</option>
@@ -29,7 +29,7 @@
               </select>
             </form>
             <form action="/results">
-              <select class="cdropdown hidden" id="cuisine" name="cuisine" style="background-color: #F2F2F2; height: 50px; width: 100%; border:none; font-weight: 400; font-family: 'Roboto Slab', serif; font-size: 18px;padding-left:15px; padding-right: 15px; color: #7F7F7F;" onchange="this.form.submit();">
+              <select class="sidebar-input cdropdown hidden" id="cuisine" name="cuisine" style="background-color: #F2F2F2; width: 100%; border:none; font-weight: 400; font-family: 'Roboto Slab', serif; padding-left:15px; padding-right: 15px; color: #7F7F7F;" onchange="this.form.submit();">
                 <option value="" selected disabled>Search dish by cuisine:</option>
                 <option value="american">American</option>
                 <option value="filipino">Filipino</option>
@@ -39,7 +39,7 @@
               </select>
             </form>
             <form action="/results">
-              <select class="cdropdown hidden" id="price" name="price" style="background-color: #F2F2F2; height: 50px; width: 100%; border:none; font-weight: 400; font-family: 'Roboto Slab', serif; font-size: 18px;padding-left:15px; padding-right: 15px; color: #7F7F7F;" onchange="this.form.submit();">
+              <select class="sidebar-input cdropdown hidden" id="price" name="price" style="background-color: #F2F2F2; width: 100%; border:none; font-weight: 400; font-family: 'Roboto Slab', serif; padding-left:15px; padding-right: 15px; color: #7F7F7F;" onchange="this.form.submit();">
                 <option value="" selected disabled>Search dish by price:</option>
                 <option value="1">P150 and below</option>
                 <option value="2">P151-P300</option>
@@ -49,7 +49,7 @@
               </select>
             </form>
             <form action="/results">
-              <select class="cdropdown hidden" id="meal" name="meal" style="background-color: #F2F2F2; height: 50px; width: 100%; border:none; font-weight: 400; font-family: 'Roboto Slab', serif; font-size: 18px;padding-left:15px; padding-right: 15px; color: #7F7F7F;" onchange="this.form.submit();">
+              <select class="sidebar-input cdropdown hidden" id="meal" name="meal" style="background-color: #F2F2F2; width: 100%; border:none; font-weight: 400; font-family: 'Roboto Slab', serif; padding-left:15px; padding-right: 15px; color: #7F7F7F;" onchange="this.form.submit();">
                 <option value="" selected disabled>Search dish by meal:</option>
                 <option value="breakfast">Breakfast</option>
                 <option value="lunch">Lunch</option>
@@ -107,26 +107,26 @@
         </script>
 
 
-        <div style="padding:0; margin:0; border-top: 5px solid #F2F2F2; margin-top: 40px; ">
-          <div style="padding:0; margin:0; margin-top: 40px;">
+        <div class="sidebar-links" style="padding:0; border-top: 5px solid #F2F2F2;">
+          <div class="sidebar-link1" style="padding:0;">
             <% if params[:controller] == "foodventures" %>
-            <%= link_to 'Foodventures', root_path, style: "color: black; text-decoration:none; font-weight: 400; font-family: 'Roboto Slab', serif; font-size: 22px; text-decoration:none; background-color:transparent" %>
+            <%= link_to 'Foodventures', root_path, style: "color: black; text-decoration:none; font-weight: 400; font-family: 'Roboto Slab', serif; text-decoration:none; background-color:transparent" %>
             <% else %>
-              <%= link_to 'Foodventures', root_path, style: "color: #F2F2F2; text-decoration:none; font-weight: 400; font-family: 'Roboto Slab', serif; font-size: 22px; text-decoration:none; background-color:transparent", onmouseover: "this.style.color = 'black';", onmouseout: "this.style.color = '#F2F2F2';"%>
+              <%= link_to 'Foodventures', root_path, style: "color: #F2F2F2; text-decoration:none; font-weight: 400; font-family: 'Roboto Slab', serif; text-decoration:none; background-color:transparent", onmouseover: "this.style.color = 'black';", onmouseout: "this.style.color = '#F2F2F2';"%>
             <% end %>
           </div>
-          <div style="padding:0; margin:0; margin-top: 30px;">
+          <div class="sidebar-link2" style="padding:0;">
             <% if current_page?(dishes_path) %>
-              <%= link_to 'In Our Bellies', dishes_path, style: "color: black; text-decoration:none; font-weight: 400; font-family: 'Roboto Slab', serif; font-size: 22px; text-decoration:none; background-color:transparent;"%>
+              <%= link_to 'In Our Bellies', dishes_path, style: "color: black; text-decoration:none; font-weight: 400; font-family: 'Roboto Slab', serif; text-decoration:none; background-color:transparent;"%>
             <% else %>
-              <%= link_to 'In Our Bellies', dishes_path, style: "color: #F2F2F2; text-decoration:none; font-weight: 400; font-family: 'Roboto Slab', serif; font-size: 22px; text-decoration:none; background-color:transparent;", onmouseover: "this.style.color = 'black';", onmouseout: "this.style.color = '#F2F2F2';"%>
+              <%= link_to 'In Our Bellies', dishes_path, style: "color: #F2F2F2; text-decoration:none; font-weight: 400; font-family: 'Roboto Slab', serif; text-decoration:none; background-color:transparent;", onmouseover: "this.style.color = 'black';", onmouseout: "this.style.color = '#F2F2F2';"%>
             <% end %>
           </div>
-          <div style="padding:0; margin:0; margin-top: 30px;">
+          <div class="sidebar-link2" style="padding:0;">
             <% if current_page?(about_path) %>
-              <%= link_to 'Meet the Foodies', about_path, style: "color: black; text-decoration:none; font-weight: 400; font-family: 'Roboto Slab', serif; font-size: 22px; text-decoration:none; background-color:transparent;"%>
+              <%= link_to 'Meet the Foodies', about_path, style: "color: black; text-decoration:none; font-weight: 400; font-family: 'Roboto Slab', serif; text-decoration:none; background-color:transparent;"%>
             <% else %>
-              <%= link_to 'Meet the Foodies', about_path, style: "color: #F2F2F2; text-decoration:none; font-weight: 400; font-family: 'Roboto Slab', serif; font-size: 22px; text-decoration:none; background-color:transparent;", onmouseover: "this.style.color = 'black';", onmouseout: "this.style.color = '#F2F2F2';"%>
+              <%= link_to 'Meet the Foodies', about_path, style: "color: #F2F2F2; text-decoration:none; font-weight: 400; font-family: 'Roboto Slab', serif; text-decoration:none; background-color:transparent;", onmouseover: "this.style.color = 'black';", onmouseout: "this.style.color = '#F2F2F2';"%>
             <% end %>
           </div>
         </div>
