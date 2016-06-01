@@ -36,6 +36,9 @@ body {
 .photos-label{
   font-size: 18px; 
 }
+.col-cards{
+  padding-top: 15px;
+}
 
 .btn-more{
   background-color: #FE7F83;
@@ -102,7 +105,9 @@ select:focus{
 }
 
 /* ----- FOODVENTURES INDEX ---- */
-
+.foodventures-top{
+  margin-top: 20px;
+}
 .foodventures-header{
   font-size: 60px; 
 }
@@ -207,11 +212,14 @@ select:focus{
     width: 100%;
     float:none;
     overflow-x:hidden;
-    min-height: 100vh;
+    min-height: 480px;
   }
 
   .photos-label{
     font-size: 15px;
+  }
+  .col-cards{
+    padding-top: 8px;
   }
   .btn-more{
     font-size: 13px;
@@ -259,6 +267,9 @@ select:focus{
 
   /* ----- FOODVENTURES INDEX ---- */
 
+  .foodventures-top{
+    margin-top: 5px;
+  }
   .foodventures-header{
     font-size: 20px; 
   }
@@ -279,6 +290,7 @@ select:focus{
     width: 100%;
   }
 
+
 }
 
 /* ----------- WEB TRIAL FOR iPhone 4 and 4S ----------- */
@@ -296,6 +308,9 @@ select:focus{
 
   .photos-label{
     font-size: 15px;
+  }
+  .col-cards{
+    padding-top: 8px;
   }
   .btn-more{
     font-size: 13px;
@@ -343,6 +358,9 @@ select:focus{
 
   /* ----- FOODVENTURES INDEX ---- */
 
+  .foodventures-top{
+    margin-top: 5px;
+  }
   .foodventures-header{
     font-size: 20px; 
   }
