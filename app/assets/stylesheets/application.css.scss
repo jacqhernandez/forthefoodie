@@ -384,3 +384,12 @@ select:focus{
 
 
 }
+
+
+/* ----- NEW ---- */
+
+.go-btn:hover, .go-btn:visited, .go-btn:active{
+  text-decoration: none;
+  background-color: transparent;
+  color: #FF7474;
+}

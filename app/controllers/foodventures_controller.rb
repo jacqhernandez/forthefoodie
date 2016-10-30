@@ -3,8 +3,17 @@ class FoodventuresController < ApplicationController
 
   # GET /foodventures
   # GET /foodventures.json
+
+  # def index
+  #   @foodventures = Foodventure.paginate(page: params[:page], per_page: 2).order('created_at DESC')
+  #   respond_to do |format|
+  #     format.html
+  #     format.js
+  #   end
+  # end
+
   def index
-    @foodventures = Foodventure.paginate(page: params[:page], per_page: 2).order('created_at DESC')
+    @foodventures = Foodventure.all
     respond_to do |format|
       format.html
       format.js

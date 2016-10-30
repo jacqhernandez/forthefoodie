@@ -1,19 +1,95 @@
 <div>
-  <%= render 'pages/sidebar' %>
-  <div class="right-section">  
-    <div style="margin:-20px;">
-      <h1 class="foodventures-header" style="margin:0; width: 100%; color:black; font-weight: 700; font-family: 'Roboto Slab', serif; color: #7F7F7F; text-align:right;">FOR THE <span style="color: #FE7F83;">FOODIE</span></h1>
-      <div style="margin-top: 30px;" id="foodventures">
-        <% @count = @foodventures.count %>
-        <%= render @foodventures %>
-      </div>
-      <div id="foodventures-paginate">
-        <%= will_paginate %>
-      </div>
-      <% if @foodventures.next_page %>
-        <center><div id="more-foodventures" class="btn btn-more">MORE FOODVENTURES</div></center>
-      <% end %>
+  <div style="height: 100vh; overflow-x:hidden; overflow-y:auto; background-color: white; font-family: 'Roboto Slab', serif;">  
+    <!-- header -->
+    <div style="background-color:#FF7474; height: 9vh; padding: 3.5vh 2.5vw;">
+      <!-- <span style="color:white; font-weight: 400; font-size: 15px;">SEARCH DISH BY</span> -->
+      <select style="background-color: transparent; border:none; font-weight: 400; color:white; font-size: 15px;">z
+        <option value="" selected disabled style="font-weight: 300; color: black;">SEARCH BY:</option>
+        <option value="name" style="font-weight: 300; color: #757575; font-size: 15px;">NAME</option>
+        <option value="restaurant" style="font-weight: 300; color: #757575; font-size: 15px;">RESTAURANT</option>
+        <option value="cuisine" style="font-weight: 300; color: #757575; font-size: 15px;">CUISINE</option>
+        <option value="course" style="font-weight: 300; color: #757575; font-size: 15px;">COURSE</option>
+        <option value="meal" style="font-weight: 300; color: #757575; font-size: 15px;">MEAL</option>
+        <option value="price" style="font-weight: 300; color: #757575; font-size: 15px;">PRICE RANGE</option>
+      </select>
+      <span><input style="background-color: transparent; width: 250px; border:none; color: white; font-weight: 400; font-size: 15px; padding-left:10px; padding-right: 10px;"></span>
+      <span class="pull-right" style="font-weight: 700; color: white; text-align:right; font-size: 40px;">FOR THE <span style="color: #212121;">FOODIE</span></span><!-- insert 'feeling' handwriting -->
+      <span class="pull-right" style="margin-right: 3vw;">
+        <a href="#" style="color: white; font-size:15px; text-decoration:none; background:none;" onmouseover="this.style.color = 'black';" onmouseout="this.style.color='white';">FOODVENTURES</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="#" style="color: white; font-size:15px; text-decoration:none; background:none;" onmouseover="this.style.color = 'black';" onmouseout="this.style.color='white';">IN OUR BELLIES</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="#" style="color: white; font-size:15px; text-decoration:none; background:none;" onmouseover="this.style.color = 'black';" onmouseout="this.style.color='white';">MEET THE FOODIES</a>
     </div>
+    <!-- end of header -->
+    <!-- rows -->
+    <div style="padding-top: 3vh; padding-bottom: 5vh;">
+      <!-- first row -->
+      <% @count = @foodventures.count %>
+      <div class="row" style="padding-top: 4vh; padding-left: 4vw; padding-right: 0vw;">
+      <% @foodventures.order('created_at DESC').limit(3).each do |foodventure| %>
+        <div class="col-md-4" style="width: 31.75%; height: 100%; padding: 0vh 1vw;">
+          <%= link_to foodventure do %> 
+            <%= image_tag "http://s3.amazonaws.com/forthefoodie/#{foodventure.foodventure_restaurants.first.dishes.first.filename}", style: "width:100%;" %>
+          <% end %>
+          <div style="width: 100%; padding-top: 1vh; color: #212121; font-size: 17px;">
+            <span style="font-weight: 700;">
+              <%= link_to "Foodventures ##{@count}", foodventure, html_options = {style: "text-decoration:none; background-color:transparent; color: #212121;", onmouseover: "this.style.color = '#FF7474';", onmouseout:"this.style.color = '#212121';"} %>
+            </span><br>
+            <% @count = @count - 1 %>
+            <div class="row" style="height: 100%; width: 100%; margin:0;">
+              <div class="col-md-9" style="padding:0;"><span style="font-weight: 300; color: #757575;">
+                <% foodventure.foodventure_restaurants.each_with_index do |fr, index| %>
+                  <% if index == 0 %>
+                  <% else %>
+                    ,
+                  <% end %>
+                  <%= link_to fr.restaurant.name, results_path(restaurant: fr.restaurant.name), html_options = {style: "text-decoration:none; background-color:transparent; color: #757575;", onmouseover: "this.style.color = '#FF7474';", onmouseout:"this.style.color = '#757575';"} %>
+                <% end %>
+              </span></div>
+              <div class="col-md-3" style="padding:0;"><span class="pull-right go-btn" style="color: #FF7474; font-weight: 300; text-align:right;">
+                <%= link_to foodventure, html_options = {class: "go-btn", style: "text-decoration:none; color: #FF7474;"} do %>
+                    READ MORE
+                  <% end %>
+                </span></div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      </div>
+      <!-- end of first row -->
+      <!-- next rows -->
+      <div class="row" style="padding-left: 4vw; padding-right: 0vw;">
+        <% @count = @foodventures.count - 3 %>
+        <% @exclude = [@foodventures.count, @foodventures.count - 1, @foodventures.count - 2] %>
+        <%= render @foodventures.order('created_at DESC') %>
+      </div>
+      <!-- end of next rows -->
+      <!-- more foodventures -->
+      <div>
+      </div>
+      <!-- end -->
+    </div>
+    <!-- end of rows-->
+    <!-- footer -->
+    <div style="background-color:#212121; height: 9vh; padding: 2vh 2.5vw; color:white;">
+      <span style="font-weight: 300; font-size: 15px;">< > by <span style="color: #FF7474;">siopao</span><br>Copyright 2016</span>
+    </div>
+    <!-- end of footer -->
   </div>
 </div>
 
+<style>
+select:focus{
+  outline:none;
+}
+</style>
+<!-- purple - 8C3573
+green - AFCB80
+orange - FA7A35
+red - D01C1F
+gold - F7E14A
+
+from photo
+purple - #6E345A
+red - #D60927
+orange - #FF602F
+green - #98B364 -->

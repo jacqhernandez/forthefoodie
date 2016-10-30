@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   root 'foodventures#index'
 
   get '/index' => 'pages#index', as: :index
+
+  get '/sample' => 'pages#sample'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -57,5 +57,5 @@ class PagesController < ApplicationController
     end
   end
   #check uppercase
-
+  
 end
