@@ -12,11 +12,12 @@
 </head>
 <body>
   <div class="container-fluid" style="padding:0; margin:0; min-height: 100vh;">
-    <div style="min-height: 100vh; overflow-x:hidden; overflow-y:auto; background-color: white; font-family: 'Roboto Slab', serif;">  
+    <div style="min-height: 100vh; height: 100%; margin: 0 auto -9vh; overflow-x:hidden; overflow-y:auto; background-color: white; font-family: 'Roboto Slab', serif;">  
       <%= render 'pages/navbar' %>
-        <%= yield %>
-      <%= render 'pages/footer' %>
+      <%= yield %>
+      <div class="push" style="height: 9vh;"></div>
     </div>
+  <%= render 'pages/footer' %>
   <%= javascript_include_tag('classie.js') %>
   <%= javascript_include_tag('slidemenu.js') %>
   </div>

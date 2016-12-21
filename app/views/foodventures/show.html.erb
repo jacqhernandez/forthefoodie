@@ -1,14 +1,14 @@
-<div style="padding-top: 3vh; padding-bottom: 5vh;">
-  <div style="padding-left: 10vw; padding-right: 10vw;">
+<div style="padding-top: 12vh; padding-bottom: 5vh;">
+  <div style="padding-left: 5vw; padding-right: 10vw;">
     <div class="row">
-      <div class="col-md-8 foodventure-show-left" style="min-height: 80vh;">
+      <div class="col-md-8 foodventure-show-left" style="min-height: 80vh; width: 75%;">
         <% count1 = 0 %>
         <% Foodventure.all.each do |f| %>
           <% count1 = count1 + 1 %>
           <% break if f.id == @foodventure.id %>
         <% end %>
-        <h1 style="font-weight: 700; font-size: 20px; color: #757575; text-align:center;">
-          Foodventures <%= count1 %>:
+        <h1 style="font-weight: 300; font-size: 18px; color: #212121; text-align:center;">
+          FOODVENTURES <%= count1 %>:
           <% @foodventure.foodventure_restaurants.each_with_index do |fr, index| %>
             <span style="color: #FF7474;">
               <% if index == 0 %>
@@ -18,7 +18,7 @@
               <% end %>
             </span>
           <% end %>
-          <br><span style="font-weight: 300; font-size: 18px;"><%= @foodventure.date.strftime("%B %e, %Y") %></span>
+          <br><span style="font-weight: 300; font-size: 15px; color: #757575;"><%= @foodventure.date.strftime("%B %e, %Y") %></span>
         </h1>
         <% total_dishes = [] %>
         <% @foodventure.foodventure_restaurants.each do |fr| %>
@@ -26,22 +26,22 @@
         <% end %>
         <% total_dishes.each do |d| %>
           <div class="row" style="margin-left: 0; padding-left: 0; width: 100%; height: 100%; padding-top: 4vh; padding-bottom: 1vh;">
-            <div class="col-md-9" style="padding: 0; font-weight: 300; color: #212121; font-size: 18px;">
+            <div class="col-md-9" style="padding-left:7.8vw; padding-top: 2px; font-weight: 300; color: #212121; font-size: 17px;">
               <%= d.name %> at <%= link_to d.foodventure_restaurant.restaurant.name, results_path(restaurant: d.foodventure_restaurant.restaurant.name), html_options = {style: "text-decoration:none; background-color:transparent; color: #212121;", onmouseover: "this.style.color = '#FF7474';", onmouseout:"this.style.color = '#212121';"} %> (P<%= number_to_currency(d.price, precision: 2, strip_insignificant_zeros: true, unit: "") %>)
             </div>
-            <div class="col-md-3" style="padding: 0; text-align:right; font-weight: 300; color: #212121; font-size: 18px; font-weight: 300; color: white; font-size: 15px;">
+            <div class="col-md-3" style="padding-right: 7.8vw; text-align:right; font-weight: 300; color: #212121; font-size: 18px; font-weight: 300; color: white; font-size: 15px;">
               <span style="background-color: #FF7474; padding: 3px 5px; border-radius: 3px;"><%= d.verdict.upcase %></span>
             </div>
           </div>
-          <%= image_tag "http://s3.amazonaws.com/forthefoodie/#{d.filename}", style: "width:100%;" %>
-          <div style="font-weight: 300; font-size: 16px; margin-top: 1.5vh; line-height: 20px; color: #757575;">
+          <center><%= image_tag "http://s3.amazonaws.com/forthefoodie/#{d.filename}", style: "width:75%;" %></center>
+          <div style="padding: 0vh 7.8vw; font-weight: 300; font-size: 16px; margin-top: 1.5vh; line-height: 20px; color: #757575;">
             <span style="color: #FF7474;">Eylla</span>: <%= d.comment_e %><br><br>
             <span style="color: #FF7474;">Jacq</span>: <%= d.comment_m %>
           </div>
         <% end %>
         <div style="margin-top: 5vh; font-weight: 300; color: #212121; font-size: 16px;">
           <hr style="width: 100%; color: #757575;">
-          <span style="font-size: 18px;">Foodventure destinations<br><br></span>
+          <span style="font-size: 17px;">FOODVENTURE DESTINATIONS<br><br></span>
           <% @foodventure.foodventure_restaurants.each do |fr| %>
             <%= link_to fr.restaurant.name, results_path(restaurant: fr.restaurant.name), html_options = {style: "text-decoration:none; background-color:transparent; font-weight: 700; color: #212121;", onmouseover: "this.style.color = '#FF7474';", onmouseout:"this.style.color = '#212121';"} %><br>
             <span style="color: #FF7474;">Address</span>: <%= fr.restaurant.address %><br>
@@ -106,35 +106,66 @@
           </div>
         </div>
       </div>
-      <div class="col-md-4 foodventure-show-right" style="overflow-y: auto; margin-top: 14vh;">
+      <!-- <div class="col-md-4 foodventure-show-right" style="overflow-y: auto; margin-top: 14vh;"> -->
+      <div class="col-md-4 foodventure-show-right" style="overflow-y: auto; background:; right:3vw; position:fixed;">
+        <span class="pull-right" style="font-weight: 300; font-size: 15px; color: #FF7474; right:0;">MORE FOODVENTURES</span><br><br>
+        <% count2 = 0 %>
         <% count = Foodventure.all.count + 1 %>
-        <% Foodventure.all.order('CREATED_AT desc').each do |f| %>
-          <% count = count - 1 %>
-          <% if count != count1 %>
-            <div class="row" style="margin:none; padding:none; margin-bottom: 2vh;">
-              <div class="col-xs-7" style="font-size: 15px; color: #212121;">
-                <span class="pull-right" style="font-weight: 700;">
-                  <%= link_to "Foodventure ##{count}", f, html_options = {style: "text-decoration:none; background-color:transparent; color: #212121;", onmouseover: "this.style.color = '#FF7474';", onmouseout:"this.style.color = '#212121';"} %>
-                </span><br>
-                <span class="pull-right" style="font-weight: 300; color: #757575;">
-                  <% f.foodventure_restaurants.each_with_index do |fr, index| %>
-                    <% if index == 0 %>
-                    <% else %>
-                      ,
+        <% Foodventure.all.order('CREATED_AT desc').limit(5).each do |f| %>
+          <% if count2 != 4 %>
+            <% count = count - 1 %>
+            <% if count != count1 %>
+              <div class="row" style="margin:none; padding:none; margin-bottom: 2vh;">
+                <div class="col-xs-7" style="font-size: 15px; color: #212121;">
+                  <span class="pull-right" style="font-weight: 700;">
+                    <%= link_to "Foodventure ##{count}", f, html_options = {style: "text-decoration:none; background-color:transparent; color: #212121;", onmouseover: "this.style.color = '#FF7474';", onmouseout:"this.style.color = '#212121';"} %>
+                  </span><br>
+                  <span class="pull-right" style="font-weight: 300; color: #757575;">
+                    <% f.foodventure_restaurants.each_with_index do |fr, index| %>
+                      <% if index == 0 %>
+                      <% else %>
+                        ,
+                      <% end %>
+                      <%= link_to fr.restaurant.name, results_path(restaurant: fr.restaurant.name), html_options = {style: "text-decoration:none; background-color:transparent; color: #757575;", onmouseover: "this.style.color = '#FF7474';", onmouseout:"this.style.color = '#757575';"} %>
+                      <!-- <br><i class="fa fa-chevron-circle-right pull-right" style="color: #FF7474; font-size: 20px; margin-top: 10.5vh;" aria-hidden="true"></i> -->
                     <% end %>
-                    <%= link_to fr.restaurant.name, results_path(restaurant: fr.restaurant.name), html_options = {style: "text-decoration:none; background-color:transparent; color: #757575;", onmouseover: "this.style.color = '#FF7474';", onmouseout:"this.style.color = '#757575';"} %>
+                  </span>
+                </div>
+                <div class="col-xs-5" style="padding-left: 0;">
+                  <%= link_to f do %>
+                    <%= image_tag "http://s3.amazonaws.com/forthefoodie/#{f.foodventure_restaurants.first.dishes.first.filename}", style: "width:100%;" %>
                   <% end %>
-                </span>
+                </div>
               </div>
-              <div class="col-xs-5" style="padding-left: 0;">
-                <%= link_to f do %>
-                  <%= image_tag "http://s3.amazonaws.com/forthefoodie/#{f.foodventure_restaurants.first.dishes.first.filename}", style: "width:100%;" %>
-                <% end %>
-              </div>
-            </div>
+              <% count2 = count2 + 1 %>
+            <% end %>
           <% end %>
         <% end %>
       </div>
+
+      <!-- <div class="col-md-4 foodventure-show-right" style="overflow-y: auto; background:; right:0; position:fixed; z-index: 1;">
+        <div style="padding-top: 1vh;">
+          <center><span style="font-weight: 300; font-size: 15px; color: #FF7474;">MORE FOODVENTURES</span></center>
+        </div>
+        <% count2 = 0 %>
+        <% count = Foodventure.all.count + 1 %>
+        <div class="row" style="margin-top: 1vh; padding:0; margin-bottom: 2vh; z-index: 1;">
+          <% Foodventure.all.order('CREATED_AT desc').limit(16).each do |f| %>
+          <% if count2 != 15 %>
+            <% count = count - 1 %>
+              <% if count != count1 %>
+                <div class="col-xs-4" style="padding:10px 10px;">
+                  <%= link_to f do %>
+                    <%= image_tag "http://s3.amazonaws.com/forthefoodie/#{f.foodventure_restaurants.first.dishes.sample.filename}", style: "width:100%;" %>
+                  <% end %>
+                </div>
+                <% count2 = count2 + 1 %>
+              <% end %>
+            <% end %>
+          <% end %>
+        </div>
+      </div> -->
+
       <script>
         $(document).ready(function(e){
           $(".foodventure-show-right").height($(".foodventure-show-left").height()-140);
