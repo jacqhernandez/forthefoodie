@@ -4,7 +4,8 @@ class DishesController < ApplicationController
   # GET /dishes
   # GET /dishes.json
   def index
-    @dishes = Dish.paginate(page: params[:page], per_page: 9).order('created_at DESC')
+    #@dishes = Dish.paginate(page: params[:page], per_page: 9).order('created_at DESC')
+    @dishes = Dish.all
     respond_to do |format|
       format.html
       format.js

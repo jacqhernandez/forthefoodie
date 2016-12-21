@@ -10,10 +10,10 @@ class PagesController < ApplicationController
     if params[:restaurant].present?
       @category = "restaurant"
       @query = params[:restaurant]
-      #for postgresql
+      #for postgresql (use ILIKE over LIKE)
       #sql = "SELECT a.*, CASE WHEN upper(c.name) = upper('#{@query}') THEN 2 ELSE 1 END AS score FROM dishes a LEFT JOIN foodventure_restaurants b ON a.foodventure_restaurant_id = b.id LEFT JOIN restaurants c ON b.restaurant_id = c.id WHERE c.name ILIKE '%#{@query}%' ORDER BY score DESC;"
       dishes1 = Dish.joins(:foodventure_restaurant).merge(FoodventureRestaurant.joins(:restaurant).merge(Restaurant.where("lower(restaurants.name) = ?", @query.downcase)))
-      dishes2 = Dish.joins(:foodventure_restaurant).merge(FoodventureRestaurant.joins(:restaurant).merge(Restaurant.where("restaurants.name ILIKE ?", "%#{@query}%")))
+      dishes2 = Dish.joins(:foodventure_restaurant).merge(FoodventureRestaurant.joins(:restaurant).merge(Restaurant.where("restaurants.name LIKE ?", "%#{@query}%")))
       @pages = ((dishes1 + dishes2).uniq).paginate(page: params[:page], per_page: 9)
     elsif params[:cuisine].present?
       @category = "cuisine"
@@ -30,7 +30,7 @@ class PagesController < ApplicationController
     elsif params[:dish].present?
       @category = "dish"
       @query = params[:dish]
-      @pages = Dish.where("(name ILIKE ?) OR (tag ILIKE ?)", "%#{@query}%", "%#{@query}%").paginate(page: params[:page], per_page: 9).order('created_at DESC')
+      @pages = Dish.where("(name LIKE ?) OR (tag LIKE ?)", "%#{@query}%", "%#{@query}%").paginate(page: params[:page], per_page: 9).order('created_at DESC')
     elsif params[:price].present?
       @category = "price range"
       if params[:price] == "1"

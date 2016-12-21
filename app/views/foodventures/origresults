@@ -1,0 +1,33 @@
+<body> 
+  <div>
+    <%= render 'pages/sidebar' %>
+    <div class="right-section">
+      <div style="margin:-20px;">
+          <h1 style="margin:0; width: 100%; color:black; font-weight: 700; font-family: 'Roboto Slab', serif; font-size: 60px; color: #7F7F7F; text-align:right;">FOR THE <span style="color: #FE7F83;">FOODIE</span></h1>
+          <% if params[:dish].present? || params[:cuisine].present? || params[:course].present? || params[:meal].present? || params[:price].present? || params[:restaurant].present? %>
+            <h1 style="margin-top: 35px; margin-bottom: 15px; width: 100%; color:black; font-weight: 700; font-family: 'Roboto Slab', serif; font-size: 25px; color: #7F7F7F">
+              <% if @pages.count == 0 %>
+              No results
+              <% else %>
+                Results 
+              <% end %>
+              for <span style="color: #FE7F83;">"<%= @query %>"</span> <%= @category %>
+            </h1>
+            <div class="row" id="pages">
+               <%= render 'results' %>  
+            </div>
+            <div id="pages-paginate">
+                <%= will_paginate %>
+            </div>
+            <% if @pages.next_page %>
+                <center><div id="more-pages" class="btn btn-more">MORE RESULTS</div></center>
+            <% end %>
+          <% else %>
+            <h1 style="margin-top: 35px; margin-bottom: 15px; width: 100%; color:black; font-weight: 700; font-family: 'Roboto Slab', serif; font-size: 25px; color: #7F7F7F">
+              No search query
+            </h1>
+          <% end %>
+        </div>
+    </div>
+  </div>
+</body>

@@ -1,0 +1,143 @@
+<div style="background-color:#FF7474; height: 9vh; padding: 3.5vh 2.5vw;">
+  <!-- <span style="color:white; font-weight: 400; font-size: 15px;">SEARCH DISH BY</span> -->
+  <select class="pull-left" id="category" name="category" style="background-color: transparent; border:none; font-weight: 400; color:white; font-size: 15px;">
+    <option value="" selected disabled class="navbar-option-default">SEARCH BY:</option>
+    <option value="name" class="navbar-option">Name</option>
+    <option value="restaurant" class="navbar-option">Restaurant</option>
+    <option value="cuisine" class="navbar-option">Cuisine</option>
+    <option value="course" class="navbar-option">Course</option>
+    <option value="meal" class="navbar-option">Meal</option>
+    <option value="price" class="navbar-option">Price Range</option>
+  </select>
+  <span>
+    <form action="/results" id="fsearch1" class="pull-left">
+      <input class="navbar-input" id="dish" name="dish" autofocus="autofocus" placeholder="Search dish by name">
+    </form>
+    <form action="/results" id="fsearch2" class="pull-left">
+      <input class="navbar-input cdropdown hidden" id="restaurant" name="restaurant" autofocus="autofocus" placeholder="Search dish by restaurant">
+    </form>
+    <form action="/results" class="pull-left">
+      <select class="navbar-select cdropdown hidden" id="course" name="course" onchange="this.form.submit();">
+        <option value="" selected disabled class="navbar-option-default">Search dish by course:</option>
+        <option value="appetizer" class="navbar-option">Appetizer</option>
+        <option value="entree" class="navbar-option">Entree</option>
+        <option value="main" class="navbar-option">Main</option>
+        <option value="dessert" class="navbar-option">Dessert</option>
+      </select>
+    </form>
+    <form action="/results" class="pull-left">
+      <select class="navbar-select cdropdown hidden" id="cuisine" name="cuisine" onchange="this.form.submit();">
+        <option value="" selected disabled class="navbar-option-default">Search dish by cuisine:</option>
+        <option value="american"  class="navbar-option">American</option>
+        <option value="filipino" class="navbar-option">Filipino</option>
+        <option value="italian" class="navbar-option">Italian</option>
+        <option value="japanese" class="navbar-option">Japanese</option>
+        <option value="mexican"  class="navbar-option">Mexican</option>
+      </select>
+    </form>
+    <form action="/results" class="pull-left">
+      <select class="navbar-select cdropdown hidden" id="meal" name="meal" onchange="this.form.submit();">
+        <option value="" selected disabled class="navbar-option-default">Search dish by meal:</option>
+        <option value="breakfast" class="navbar-option" >Breakfast</option>
+        <option value="lunch" class="navbar-option" >Lunch</option>
+        <option value="snacks" class="navbar-option" >Snacks</option>
+        <option value="dinner" class="navbar-option" >Dinner</option>
+      </select>
+    </form>
+    <form action="/results" class="pull-left">
+      <select class="navbar-select cdropdown hidden" id="price" name="price" onchange="this.form.submit();">
+        <option value="" selected disabled class="navbar-option-default">Search dish by price:</option>
+        <option value="1" class="navbar-option" >P150 and below</option>
+        <option value="2" class="navbar-option">P151-P300</option>
+        <option value="3" class="navbar-option">P301-P450</option>
+        <option value="4" class="navbar-option">P451-999</option>
+        <option value="5" class="navbar-option">P1000 and above</option>
+      </select>
+    </form>
+  </span>
+
+  <style>
+  .cdropdown{
+    display:none;
+  }
+  </style>
+
+  <script>
+    $(document).ready(function(e){
+      $(".cdropdown").removeClass('hidden');
+      $('#category').on('change', function() {
+        $(".cdropdown").hide();
+        $("#dish").hide();
+        if ($(this).val() == "course"){
+          $("#course").show();
+        }
+        else if ($(this).val() == "cuisine"){
+          $("#cuisine").show();
+        }
+        else if ($(this).val() == "meal"){
+          $("#meal").show();
+        }
+        else if ($(this).val() == "price"){
+          $("#price").show();
+        }
+        else if ($(this).val() == "restaurant"){
+          $("#restaurant").show();
+        }
+        else if ($(this).val() == "name"){
+          $("#dish").show();
+        }
+        else{
+          $("#dish").show();
+        }
+      });
+      $("#restaurant").keyup(function(event){
+        if(event.keyCode == 13){
+          $('#fsearch2').submit();
+        }
+      });
+      $("#dish").keyup(function(event){
+        if(event.keyCode == 13){
+          $('#fsearch1').submit();
+        }
+      });
+    });
+    </script>
+
+  <span class="pull-right" style="font-weight: 700; color: white; text-align:right; font-size: 40px;">FOR THE <span style="color: #212121;">FOODIE</span></span><!-- insert 'feeling' handwriting -->
+  <span class="pull-right" style="margin-right: 3vw;">
+    <% if current_page?(root_path) %>
+      <a href="/" class="navbar-links navbar-links-active">
+    <% else %>
+      <a href="/" class="navbar-links">
+    <% end %>
+    FOODVENTURES</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <% if current_page?(dishes_path) %>
+      <a href="/dishes" class="navbar-links navbar-links-active">
+    <% else %>
+      <a href="/dishes" class="navbar-links">
+    <% end %>
+    IN OUR BELLIES</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <% if current_page?(about_path) %>
+      <a href="/about" class="navbar-links navbar-links-active">
+    <% else %>
+      <a href="/about" class="navbar-links">
+    <% end %>
+    MEET THE FOODIES</a>
+</div>
+
+<style>
+select:focus{
+outline:none;
+}
+.navbar-links, .navbar-links:visited{
+  color: white; 
+  font-size:15px; 
+  text-decoration:none; 
+  background:none;
+}
+.navbar-links:hover, .navbar-links-active, .navbar-links-active:visited, .navbar-links-active:active, .navbar-links:active{
+  color: black; 
+  text-decoration:none; 
+  background:none;
+}
+</style>

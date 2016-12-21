@@ -1,19 +1,13 @@
-<div>
-  <%= render 'pages/sidebar' %>
-  <div class="right-section">
-    <div style="margin:-20px;">
-        <h1 style="margin:0; width: 100%; color:black; font-weight: 700; font-family: 'Roboto Slab', serif; font-size: 60px; color: #7F7F7F; text-align:right;">FOR THE <span style="color: #FE7F83;">FOODIE</span></h1>
-        <h1 style="margin-top: 30px; margin-bottom: 15px; width: 100%; color:black; font-weight: 700; font-family: 'Roboto Slab', serif; font-size: 40px; color: #7F7F7F"><center>IN OUR <span style="color: #FE7F83;">BELLIES</span></center></h1>
-        <div class="row" id="dishes">
-          <%= render @dishes %> <!-- this goes to partial dish -->
-        </div>
-        <div id="dishes-paginate">
-            <%= will_paginate %>
-        </div>
-        <% if @dishes.next_page %>
-            <center><div id="more-dishes" class="btn btn-more">MORE DISHES</div></center>
-        <% end %>
-      </div>
+<!-- rows -->
+<div style="padding-top: 3vh; padding-bottom: 5vh;">
+  <!--  rows -->
+  <div class="row" style="padding-left: 4vw; padding-right: 0vw;">
+    <%= render @dishes.order('created_at DESC') %>
   </div>
+  <!-- end of rows -->
+  <!-- more dishes -->
+  <div>
+  </div>
+  <!-- end -->
 </div>
-
+<!-- end of rows-->

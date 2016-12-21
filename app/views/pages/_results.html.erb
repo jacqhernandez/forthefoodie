@@ -1,17 +1,22 @@
 <% @pages.each do |r| %>
-  <div class="col-md-4 col-cards" style="padding-top: 15px; padding-bottom: 15px;">
-    <div style="width: 100%;">
-      <%= link_to r.foodventure_restaurant.foodventure, html_options = {style: "text-decoration:none;"} do %>
-        <%= image_tag "http://s3.amazonaws.com/forthefoodie/#{r.filename}", style: "width:100%;" %>
-      <% end %>
-    </div>
-    <div style="width: 100%; color:black; font-weight: 700; font-family: 'Roboto Slab', serif; font-size: 15px; margin-top: -50px;">
-      <span class="photos-label" style="padding:8px; background-color:white; min-height: 50px; width: 100%; display:inline-block;">
-        <%= link_to r.foodventure_restaurant.restaurant.name, results_path(restaurant: r.foodventure_restaurant.restaurant.name), html_options = {style: "text-decoration:none; background-color:transparent; color: black;", onmouseover: "this.style.color = '#FE7F83';", onmouseout:"this.style.color = 'black';"} %>
-        <br>
-        <span style="font-weight: 300;"><%= link_to r.name, foodventure_path(r.foodventure_restaurant.foodventure), html_options = {style: "text-decoration:none; background-color:transparent; color: black;", onmouseover: "this.style.color = '#FE7F83';", onmouseout:"this.style.color = 'black';"} %></span>
-        <span class="pull-right" style="font-weight: 300; ">P<%= number_to_currency(r.price, precision: 2, strip_insignificant_zeros: true, unit: "") %></span>
-      </span>
+  <div class="col-md-3" style="width: 23.75%; height: 100%; padding: 0vh 1vw; padding-top: 4vh">
+    <%= link_to r.foodventure_restaurant.foodventure do %>
+      <%= image_tag "http://s3.amazonaws.com/forthefoodie/#{r.filename}", style: "width:100%;" %>
+    <% end %>
+    <div style="width: 100%; padding-top: 1vh; color: #212121; font-size: 15px;">
+      <span style="font-weight: 700;">
+        <%= link_to r.foodventure_restaurant.restaurant.name, results_path(restaurant: r.foodventure_restaurant.restaurant.name), html_options = {style: "text-decoration:none; background-color:transparent; color: #212121;", onmouseover: "this.style.color = '#FF7474';", onmouseout:"this.style.color = '#212121';"} %>
+        <span class="pull-right" style="padding-top: 12px; color: white; font-weight: 300;">
+          <%= link_to foodventure_path(r.foodventure_restaurant.foodventure), html_options = {class: "go-btn", style: "text-decoration:none; background-color: #FF7474; color:white; padding: 5px 5px; border-radius: 3px;", onmouseover: "this.style.background = '#212121';", onmouseout: "this.style.background='#FF7474';"} do %>
+            <%= r.verdict.upcase %>
+          <% end %>
+        </span>
+      </span><br>
+      <div class="row" style="height: 100%; width: 100%; margin:0;">
+        <div class="col-md-9" style="padding:0;"><span style="font-weight: 300; color: #757575;">
+          <%= link_to r.name, foodventure_path(r.foodventure_restaurant.foodventure), html_options = {style: "text-decoration:none; background-color:transparent; color: #757575;", onmouseover: "this.style.color = '#FF7474';", onmouseout:"this.style.color = '#757575';"} %>
+        </span></div>
+      </div>
     </div>
   </div>
 <% end %>

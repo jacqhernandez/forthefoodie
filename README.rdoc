@@ -53,3 +53,10 @@ ung loading image sa load more
 natatago ung image pag nililitan!!
 
 gg scrolling sa mobile hahaha pag nasa loob ng col-md ung scroll, tsaka masyado maliit sa mobile!! - iba ung scrolling HAHAHAH huhu
+
+
+
+
+dapat sa dulo ung footer even if 2 short
+sticky navbar
+mas fun na labels for address and recommended dishes

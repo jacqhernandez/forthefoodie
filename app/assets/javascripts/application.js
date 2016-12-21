@@ -15,5 +15,5 @@
 //= require jquery-ui/effect-slide
 //= require twitter/bootstrap
 //= require pagination
-//= require turbolinks
+// require turbolinks
 //= require_tree .

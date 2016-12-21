@@ -1,0 +1,17 @@
+<div class="col-md-4 col-cards" style="padding-top: 15px; padding-bottom: 15px;">
+  <div style="width: 100%;">
+    <%= link_to dish.foodventure_restaurant.foodventure, html_options = {style: "text-decoration:none;"} do %>
+      <%= image_tag "http://s3.amazonaws.com/forthefoodie/#{dish.filename}", style: "width:100%;" %>
+    <% end %>
+  </div>
+  <div style="width: 100%; color:black; font-weight: 700; font-family: 'Roboto Slab', serif; font-size: 15px;">
+    <span class="photos-label" style="padding:8px; background-color:white; min-height: 50px; width: 100%; display:inline-block; ">
+      <%= link_to dish.foodventure_restaurant.restaurant.name, results_path(restaurant: dish.foodventure_restaurant.restaurant.name), html_options = {style: "text-decoration:none; background-color:transparent; color: black;", onmouseover: "this.style.color = '#FE7F83';", onmouseout:"this.style.color = 'black';"} %>
+      <br>
+      <span style="font-weight: 300;">
+        <%= link_to dish.name, foodventure_path(dish.foodventure_restaurant.foodventure), html_options = {style: "text-decoration:none; background-color:transparent; color: black;", onmouseover: "this.style.color = '#FE7F83';", onmouseout:"this.style.color = 'black';"} %>
+      </span>
+      <span class="pull-right" style="font-weight: 300; ">P<%= number_to_currency(dish.price, precision: 2, strip_insignificant_zeros: true, unit: "") %></span>
+    </span>
+  </div>
+</div>

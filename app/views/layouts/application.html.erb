@@ -4,7 +4,7 @@
   <title>For the Foodie</title>
   <meta name="viewport" content="width=device-width,height=device-height initial-scale=1">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <!--<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>-->
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
@@ -12,7 +12,11 @@
 </head>
 <body>
   <div class="container-fluid" style="padding:0; margin:0; min-height: 100vh;">
-  <%= yield %>
+    <div style="min-height: 100vh; overflow-x:hidden; overflow-y:auto; background-color: white; font-family: 'Roboto Slab', serif;">  
+      <%= render 'pages/navbar' %>
+        <%= yield %>
+      <%= render 'pages/footer' %>
+    </div>
   <%= javascript_include_tag('classie.js') %>
   <%= javascript_include_tag('slidemenu.js') %>
   </div>

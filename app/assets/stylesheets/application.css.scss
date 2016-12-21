@@ -92,18 +92,7 @@ input:focus {
 select:focus{
   outline:none;
 }
-::-webkit-input-placeholder {
-   padding-top: 3px;
-}
-:-moz-placeholder { /* Firefox 18- */
-   padding-top: 3px;  
-}
-::-moz-placeholder {  /* Firefox 19+ */
-   padding-top: 3px;  
-}
-:-ms-input-placeholder {  
-   padding-top: 3px;  
-}
+
 
 /* ----- FOODVENTURES INDEX ---- */
 .foodventures-top{
@@ -251,20 +240,6 @@ select:focus{
   .sidebar-link2{
     margin-top: 15px;
   }
-  ::-webkit-input-placeholder {
-     padding-top: 1px;
-  }
-  :-moz-placeholder { /* Firefox 18- */
-     padding-top: 1px;  
-  }
-
-  ::-moz-placeholder {  /* Firefox 19+ */
-     padding-top: 1px;  
-  }
-
-  :-ms-input-placeholder {  
-     padding-top: 1px;  
-  }
 
   /* ----- FOODVENTURES INDEX ---- */
 
@@ -342,20 +317,6 @@ select:focus{
   .sidebar-link2{
     margin-top: 15px;
   }
-  ::-webkit-input-placeholder {
-     padding-top: 1px;
-  }
-  :-moz-placeholder { /* Firefox 18- */
-     padding-top: 1px;  
-  }
-
-  ::-moz-placeholder {  /* Firefox 19+ */
-     padding-top: 1px;  
-  }
-
-  :-ms-input-placeholder {  
-     padding-top: 1px;  
-  }
 
   /* ----- FOODVENTURES INDEX ---- */
 
@@ -392,4 +353,53 @@ select:focus{
   text-decoration: none;
   background-color: transparent;
   color: #FF7474;
+}
+
+.navbar-input{
+  background-color: transparent; 
+  width: 250px; 
+  border:none; 
+  color: white; 
+  font-weight: 400; 
+  font-size: 15px; 
+  padding-left:10px; 
+  padding-right: 10px;
+}
+
+.navbar-select{
+  background-color: transparent; 
+  border:none; 
+  font-weight: 400; 
+  color:white; 
+  font-size: 15px;
+}
+
+.navbar-option-default{
+  font-weight: 300; 
+  color: #212121; 
+  font-size: 15px;
+}
+.navbar-option{
+  font-weight: 300; 
+  color: #757575; 
+  font-size: 15px;
+}
+
+::-webkit-input-placeholder {
+  padding-top: 1px;
+  color:white;
+}
+:-moz-placeholder { /* Firefox 18- */
+  padding-top: 1px;
+  color:white;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  padding-top: 1px;
+  color:white;
+}
+
+:-ms-input-placeholder {
+  padding-top: 1px;
+  color:white;
 }
