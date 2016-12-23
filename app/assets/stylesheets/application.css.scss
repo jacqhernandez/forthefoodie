@@ -21,70 +21,10 @@ body {
   min-height: 100vh;
 }
 
-.left-section, .right-section {
-  height: 100vh;
-  overflow-x:hidden;
-  overflow-y:auto;
-}
 
-.right-section {
-  background-color: #F2F2F2;
-  padding: 50px;
-}
 
-.foodventure::-webkit-scrollbar { width: 0 !important }
+/* ----- HEADER ----- */
 
-.photos-label{
-  font-size: 18px; 
-}
-.col-cards{
-  padding-top: 15px;
-}
-
-.btn-more{
-  background-color: #FE7F83;
-  border-radius: 0;
-  font-family: 'Roboto Slab', serif;
-  font-weight: 700;
-  font-size: 20px;
-  color: #F2F2F2;
-  letter-spacing: 7px;
-  padding: 10px;
-  margin-top: 30px;
-}
-
-.btn-more:hover{
-  color: black;
-}
-
-/* ----- SIDEBAR ----- */
-
-.left-section {
-  background-color: #FE7F83;
-  width: 390px;
-  float: left;
-}
-.sidebar-header{
-  font-size: 28px;
-  margin-top: 20px;
-}
-.sidebar-search{
-  font-size: 18px;
-  margin-top: 50px;
-}
-.sidebar-links{
-  font-size: 22px;
-  margin-top: 40px;
-}
-.sidebar-category, .sidebar-input{
-  height: 50px;
-}
-.sidebar-link1{
-  margin-top: 40px;
-}
-.sidebar-link2{
-  margin-top: 30px;
-}
 input:focus { 
     border: none;
     outline: none;
@@ -92,260 +32,83 @@ input:focus {
 select:focus{
   outline:none;
 }
+.navbar-menu{
+  margin-right: 3vw;
+}
+.navbar-menu-icon, .navbar-search-icon{
+  color: #FF7474; 
+  font-size: 3.5em; 
+  margin-top: -1.25rem;
+}
+.navbar-menu-icon:hover, .navbar-search-icon:hover{
+  cursor: pointer;
+}
+.navbar-logo{
+  height: 7rem;
+  margin-top: -4.5rem;
+}
+@media screen and (max-width: 1089px){
+  .navbar-search{
+    display:none;
+  }
+  .navbar-logo{
+    margin-top: -2.5rem;
+  }
+}
+@media screen and (min-width: 1090px){
+  .navbar-search-icon{
+    display: none;
+  }
+}
+@media screen and (min-width: 940px){
+  .navbar-menu-icon{
+    display: none;
+  }
+}
+@media screen and (max-width: 939px){
+  .navbar-menu{
+    display: none;
+  }
+}
 
 
 /* ----- FOODVENTURES INDEX ---- */
+.foodventures-row{
+  padding-left: 4vw;
+  padding-right: 0;
+}
 .foodventures-top{
-  margin-top: 20px;
+  width: 31.75%;
+  height: 100%;
+  padding: 0 1.75rem; /*1 vw = 1.75 rem*/
+  padding-top: 4rem;
 }
-.foodventures-header{
-  font-size: 60px; 
+.foodventures-others{
+  width: 23.75%;
+  height: 100%;
+  padding: 0 1.75rem;
+  padding-top: 4rem;
+  font-size: 1.15em;
 }
-.foodventures-card-header{
-  font-size: 22px;
-}
-#more-foodventures{
-  width: 425px;
-}
-
-/* ----- DISHES INDEX ---- */
-#more-dishes{
-  width: 300px;
-}
-
-/* ----- RESULTS ---- */
-#more-pages{
-  width: 300px;
-}
-
-
-.foodventures-sidebar-description{
-  margin-right: -20px;
-}
-
-.foodventures-show-thumb{
-  width: 100%;
-}
-
-/* ------ WEB RESPONSIVE ----- */
-
-@media screen and (min-width: 1002px) and (max-width: 1100px) {
-  .photos-label {
-    font-size: 15px;
-  }
-}
-
-@media screen and (max-width: 1560px){
-  .col-cards {
-    width: 50%;
-  }
-}
-
-@media screen and (max-width: 1370px){
-  .foodventure{
-    width: 60%;
-  }
-  .foodventure-show-sidebar{
-    width: 40%;
-  }
-  .foodventure-show-dish{
-    width: 100%;
-  }
-}
-
-@media screen and (max-width: 1200px){
-  .foodventure{
-    width: 50%;
-  }
-  .foodventure-show-sidebar{
-    width: 50%;
-  }
-}
-
-@media screen and (max-width: 1060px){
-  .foodventure{
-    width: 100%;
-  }
-  .foodventure-show-sidebar{
-    width: 100%;
-  }
-}
-
-@media screen and (max-width: 1002px){
-  .col-cards {
-    width: 100%;
-  }
-}
-
-@media screen and (max-width: 991px){
-  .col-cards {
-    width: 100%;
-  }
-}
-
-@media screen and (max-width: 820px){
-  .left-section {
-    width: 100%;
-    float:none;
-    overflow-x:hidden;
-  }
-}
-
-/* ----------- iPhone 4 and 4S ----------- */
-
-/* Portrait and Landscape */
-@media only screen 
-  and (min-device-width: 320px) 
-  and (max-device-width: 480px)
-  and (-webkit-min-device-pixel-ratio: 2) {
-  .left-section{
-    width: 100%;
-    float:none;
-    overflow-x:hidden;
-    min-height: 100%;
-  }
-
-  .photos-label{
-    font-size: 15px;
-  }
-  .col-cards{
-    padding-top: 8px;
-  }
-  .btn-more{
-    font-size: 13px;
-    letter-spacing: 3px;
-    margin-top: 10px;
-  }
-
-  /* ----- SIDEBAR ----- */
-
-  .sidebar-header{
-    font-size: 20px;
-    margin-top: 0;
-  }
-  .sidebar-search{
-    font-size: 14px;
-    margin-top: 20px;
-  }
-  .sidebar-links{
-    font-size: 16px;
-    margin-top: 25px;
-  }
-  .sidebar-category, .sidebar-input{
-    height: 40px;
-  }
-  .sidebar-link1{
-    margin-top: 20px;
-  }
-  .sidebar-link2{
-    margin-top: 15px;
-  }
-
-  /* ----- FOODVENTURES INDEX ---- */
-
+@media screen and (min-width: 600px) and (max-width: 991px){
   .foodventures-top{
-    margin-top: 5px;
+    width: 96%
   }
-  .foodventures-header{
-    font-size: 20px; 
+  .foodventures-others{
+    width: 48%;
   }
-  .foodventures-card-header{
-    font-size: 16px;
-  }
-  #more-foodventures{
-    width: 100%;
-  }
-
-  /* ----- DISHES INDEX ---- */
-  #more-dishes{
-    width: 100%;
-  }
-
-  /* ----- PAGES INDEX ---- */
-  #more-pages{
-    width: 100%;
-  }
-
-
 }
-
-/* ----------- WEB TRIAL FOR iPhone 4 and 4S ----------- */
-
-@media only screen 
-  and (min-width: 320px) 
-  and (max-width: 480px)
-  and (-webkit-min-device-pixel-ratio: 2) {
-  .left-section{
-    width: 100%;
-    float:none;
-    overflow-x:hidden;
-    height: 100;
-  }
-
-  .photos-label{
-    font-size: 15px;
-  }
-  .col-cards{
-    padding-top: 8px;
-  }
-  .btn-more{
-    font-size: 13px;
-    letter-spacing: 3px;
-    margin-top: 10px;
-  }
-
-  /* ----- SIDEBAR ----- */
-
-  .sidebar-header{
-    font-size: 20px;
-    margin-top: 0;
-  }
-  .sidebar-search{
-    font-size: 14px;
-    margin-top: 20px;
-  }
-  .sidebar-links{
-    font-size: 16px;
-    margin-top: 25px;
-  }
-  .sidebar-category, .sidebar-input{
-    height: 40px;
-  }
-  .sidebar-link1{
-    margin-top: 20px;
-  }
-  .sidebar-link2{
-    margin-top: 15px;
-  }
-
-  /* ----- FOODVENTURES INDEX ---- */
-
+@media screen and (max-width: 599px) {
   .foodventures-top{
-    margin-top: 5px;
+    width: 96%;
+    padding-top: 4rem;
   }
-  .foodventures-header{
-    font-size: 20px; 
+  .foodventures-others{
+    width: 96%;
+    font-size: 1.25em;
+    padding-top: 4rem;
   }
-  .foodventures-card-header{
-    font-size: 16px;
-  }
-  #more-foodventures{
-    width: 100%;
-  }
-
-  /* ----- DISHES INDEX ---- */
-  #more-dishes{
-    width: 100%;
-  }
-
-  /* ----- PAGES INDEX ---- */
-  #more-pages{
-    width: 100%;
-  }
-
-
 }
-
 
 /* ----- NEW ---- */
 
@@ -354,11 +117,9 @@ select:focus{
   background-color: transparent;
   color: #FF7474;
 }
-
 .navbar-links, .navbar-links:active{
   text-decoration:none;
 }
-
 .navbar-input{
   background-color: transparent; 
   width: 250px; 
@@ -369,7 +130,6 @@ select:focus{
   padding-left:10px; 
   padding-right: 10px;
 }
-
 .navbar-select{
   background-color: transparent; 
   border:none; 
@@ -377,7 +137,6 @@ select:focus{
   color:#FF7474; 
   font-size: 15px;
 }
-
 .navbar-option-default{
   font-weight: 300; 
   color: #212121; 
@@ -388,7 +147,6 @@ select:focus{
   color: #FF7474; 
   font-size: 15px;
 }
-
 ::-webkit-input-placeholder {
   padding-top: 1px;
   color:#FF7474;
@@ -399,15 +157,38 @@ select:focus{
   color:#FF7474;
   font-weight: 300;
 }
-
 ::-moz-placeholder {  /* Firefox 19+ */
   padding-top: 1px;
   color:#FF7474;
   font-weight: 300;
 }
-
 :-ms-input-placeholder {
   padding-top: 1px;
   color:#FF7474;
   font-weight: 300;
 }
+
+
+/*@media screen and (max-width: 599px) { if no borders on phone
+  .foodventures-row{
+    padding-left: 0vw;
+  }
+  .foodventures-top{
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 38px;
+  }
+  .foodventures-others{
+    width: 100%;
+    padding-top: 38px;
+    font-size: 1.25em;
+    padding-left: 0vw;
+  }
+  .foodventures-description-row2{
+    padding-left: 1.5rem;
+  }
+  .foodventures-readmore{
+    padding-right: 1.5rem;
+  }
+}*/

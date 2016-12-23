@@ -1,60 +1,64 @@
-<div class="header" style="background-color:white; height: 9vh; padding: 3.5vh 2.5vw; border-bottom: 1px solid #757575; position:fixed; z-index: 2; width: 100%;">
+<div class="header" style="background-color:white; height: 9rem; padding: 3.5rem 2.5rem; border-bottom: 1px solid #757575; position:fixed; z-index: 2; width: 100%;">
   <!-- <span style="color:white; font-weight: 400; font-size: 15px;">SEARCH DISH BY</span> -->
-  <select class="pull-left" id="category" name="category" style="background-color: transparent; border:none; font-weight: 300; color:#FF7474; font-size: 15px;">
-    <option value="" selected disabled class="navbar-option-default">SEARCH BY:</option>
-    <option value="name" class="navbar-option">Name</option>
-    <option value="restaurant" class="navbar-option">Restaurant</option>
-    <option value="cuisine" class="navbar-option">Cuisine</option>
-    <option value="course" class="navbar-option">Course</option>
-    <option value="meal" class="navbar-option">Meal</option>
-    <option value="price" class="navbar-option">Price Range</option>
-  </select>
-  <span>
-    <form action="/results" id="fsearch1" class="pull-left">
-      <input class="navbar-input" id="dish" name="dish" autofocus="autofocus" placeholder="Search dish by name">
-    </form>
-    <form action="/results" id="fsearch2" class="pull-left">
-      <input class="navbar-input cdropdown hidden" id="restaurant" name="restaurant" autofocus="autofocus" placeholder="Search dish by restaurant">
-    </form>
-    <form action="/results" class="pull-left">
-      <select class="navbar-select cdropdown hidden" id="course" name="course" onchange="this.form.submit();">
-        <option value="" selected disabled class="navbar-option-default">Search dish by course:</option>
-        <option value="appetizer" class="navbar-option">Appetizer</option>
-        <option value="entree" class="navbar-option">Entree</option>
-        <option value="main" class="navbar-option">Main</option>
-        <option value="dessert" class="navbar-option">Dessert</option>
-      </select>
-    </form>
-    <form action="/results" class="pull-left">
-      <select class="navbar-select cdropdown hidden" id="cuisine" name="cuisine" onchange="this.form.submit();">
-        <option value="" selected disabled class="navbar-option-default">Search dish by cuisine:</option>
-        <option value="american"  class="navbar-option">American</option>
-        <option value="filipino" class="navbar-option">Filipino</option>
-        <option value="italian" class="navbar-option">Italian</option>
-        <option value="japanese" class="navbar-option">Japanese</option>
-        <option value="mexican"  class="navbar-option">Mexican</option>
-      </select>
-    </form>
-    <form action="/results" class="pull-left">
-      <select class="navbar-select cdropdown hidden" id="meal" name="meal" onchange="this.form.submit();">
-        <option value="" selected disabled class="navbar-option-default">Search dish by meal:</option>
-        <option value="breakfast" class="navbar-option" >Breakfast</option>
-        <option value="lunch" class="navbar-option" >Lunch</option>
-        <option value="snacks" class="navbar-option" >Snacks</option>
-        <option value="dinner" class="navbar-option" >Dinner</option>
-      </select>
-    </form>
-    <form action="/results" class="pull-left">
-      <select class="navbar-select cdropdown hidden" id="price" name="price" onchange="this.form.submit();">
-        <option value="" selected disabled class="navbar-option-default">Search dish by price:</option>
-        <option value="1" class="navbar-option" >P150 and below</option>
-        <option value="2" class="navbar-option">P151-P300</option>
-        <option value="3" class="navbar-option">P301-P450</option>
-        <option value="4" class="navbar-option">P451-999</option>
-        <option value="5" class="navbar-option">P1000 and above</option>
-      </select>
-    </form>
-  </span>
+  <i class="fa fa-bars navbar-menu-icon" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <i class="fa fa-search navbar-search-icon" aria-hidden="true"></i>
+  <div class="navbar-search">
+    <select class="pull-left" id="category" name="category" style="background-color: transparent; border:none; font-weight: 300; color:#FF7474; font-size: 15px;">
+      <option value="" selected disabled class="navbar-option-default">SEARCH BY:</option>
+      <option value="name" class="navbar-option">Name</option>
+      <option value="restaurant" class="navbar-option">Restaurant</option>
+      <option value="cuisine" class="navbar-option">Cuisine</option>
+      <option value="course" class="navbar-option">Course</option>
+      <option value="meal" class="navbar-option">Meal</option>
+      <option value="price" class="navbar-option">Price Range</option>
+    </select>
+    <span>
+      <form action="/results" id="fsearch1" class="pull-left">
+        <input class="navbar-input" id="dish" name="dish" autofocus="autofocus" placeholder="Search dish by name">
+      </form>
+      <form action="/results" id="fsearch2" class="pull-left">
+        <input class="navbar-input cdropdown hidden" id="restaurant" name="restaurant" autofocus="autofocus" placeholder="Search dish by restaurant">
+      </form>
+      <form action="/results" class="pull-left">
+        <select class="navbar-select cdropdown hidden" id="course" name="course" onchange="this.form.submit();">
+          <option value="" selected disabled class="navbar-option-default">Search dish by course:</option>
+          <option value="appetizer" class="navbar-option">Appetizer</option>
+          <option value="entree" class="navbar-option">Entree</option>
+          <option value="main" class="navbar-option">Main</option>
+          <option value="dessert" class="navbar-option">Dessert</option>
+        </select>
+      </form>
+      <form action="/results" class="pull-left">
+        <select class="navbar-select cdropdown hidden" id="cuisine" name="cuisine" onchange="this.form.submit();">
+          <option value="" selected disabled class="navbar-option-default">Search dish by cuisine:</option>
+          <option value="american"  class="navbar-option">American</option>
+          <option value="filipino" class="navbar-option">Filipino</option>
+          <option value="italian" class="navbar-option">Italian</option>
+          <option value="japanese" class="navbar-option">Japanese</option>
+          <option value="mexican"  class="navbar-option">Mexican</option>
+        </select>
+      </form>
+      <form action="/results" class="pull-left">
+        <select class="navbar-select cdropdown hidden" id="meal" name="meal" onchange="this.form.submit();">
+          <option value="" selected disabled class="navbar-option-default">Search dish by meal:</option>
+          <option value="breakfast" class="navbar-option" >Breakfast</option>
+          <option value="lunch" class="navbar-option" >Lunch</option>
+          <option value="snacks" class="navbar-option" >Snacks</option>
+          <option value="dinner" class="navbar-option" >Dinner</option>
+        </select>
+      </form>
+      <form action="/results" class="pull-left">
+        <select class="navbar-select cdropdown hidden" id="price" name="price" onchange="this.form.submit();">
+          <option value="" selected disabled class="navbar-option-default">Search dish by price:</option>
+          <option value="1" class="navbar-option" >P150 and below</option>
+          <option value="2" class="navbar-option">P151-P300</option>
+          <option value="3" class="navbar-option">P301-P450</option>
+          <option value="4" class="navbar-option">P451-999</option>
+          <option value="5" class="navbar-option">P1000 and above</option>
+        </select>
+      </form>
+    </span>
+  </div>
 
   <style>
   .cdropdown{
@@ -104,8 +108,8 @@
     </script>
 
   <!-- <span class="pull-right" style="font-weight: 700; color: #212121; text-align:right; font-size: 40px;">FOR THE <span style="color: #212121;">FOODIE</span></span> --><!-- insert 'feeling' handwriting -->
-  <span class="pull-right"><img src="http://www.thefatkidinside.com/sites/default/files/styles/profile_picture_big/public/pictures/picture-1-1465282596.png?itok=ahZ6upqQ" style="width: 70px; margin-top: -2.5vh;"><img src="http://www.thefatkidinside.com/sites/default/files/styles/profile_picture_big/public/pictures/picture-1-1465282596.png?itok=ahZ6upqQ" style="width: 70px; margin-top: -2.5vh;"><img src="http://www.thefatkidinside.com/sites/default/files/styles/profile_picture_big/public/pictures/picture-1-1465282596.png?itok=ahZ6upqQ" style="width: 70px; margin-top: -2.5vh;"></span>
-  <span class="pull-right" style="margin-right: 3vw;">
+  <span class="pull-right"><img class="navbar-logo" src="http://www.thefatkidinside.com/sites/default/files/styles/profile_picture_big/public/pictures/picture-1-1465282596.png?itok=ahZ6upqQ"><img class="navbar-logo" src="http://www.thefatkidinside.com/sites/default/files/styles/profile_picture_big/public/pictures/picture-1-1465282596.png?itok=ahZ6upqQ"><img class="navbar-logo" src="http://www.thefatkidinside.com/sites/default/files/styles/profile_picture_big/public/pictures/picture-1-1465282596.png?itok=ahZ6upqQ"></span>
+  <span class="pull-right navbar-menu">
     <% if current_page?(root_path) %>
       <a href="/" class="navbar-links navbar-links-active">
     <% else %>
@@ -124,6 +128,7 @@
       <a href="/about" class="navbar-links">
     <% end %>
     MEET THE FOODIES</a>
+  </span>
 </div>
 
 <style>

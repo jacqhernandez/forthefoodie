@@ -2,40 +2,38 @@
 <div style="padding-top: 10vh; padding-bottom: 5vh;">
   <!-- first row -->
   <% @count = @foodventures.count %>
-  <div class="row" style="padding-top: 4vh; padding-left: 4vw; padding-right: 0vw;">
+  <div class="row foodventures-row">
   <% @foodventures.order('created_at DESC').limit(3).each do |foodventure| %>
-    <div class="col-md-4" style="width: 31.75%; height: 100%; padding: 0vh 1vw;">
+    <div class="col-md-4 foodventures-top">
       <%= link_to foodventure do %> 
         <%= image_tag "http://s3.amazonaws.com/forthefoodie/#{foodventure.foodventure_restaurants.first.dishes.first.filename}", style: "width:100%;" %>
       <% end %>
-      <div style="width: 100%; padding-top: 1vh; color: #212121; font-size: 17px;">
-        <span style="font-weight: 700;">
+      <div style="width: 100%; padding-top: 1rem; font-size: 1.25em;">
+        <span style="font-weight: 700; color: #212121;">
           <%= link_to "Foodventure ##{@count}", foodventure, html_options = {style: "text-decoration:none; background-color:transparent; color: #212121;", onmouseover: "this.style.color = '#FF7474';", onmouseout:"this.style.color = '#212121';"} %>
         </span><br>
         <% @count = @count - 1 %>
-        <div class="row" style="height: 100%; width: 100%; margin:0;">
-          <div class="col-md-9" style="padding:0;"><span style="font-weight: 300; color: #757575;">
-            <% foodventure.foodventure_restaurants.each_with_index do |fr, index| %>
-              <% if index == 0 %>
-              <% else %>
-                ,
-              <% end %>
-              <%= link_to fr.restaurant.name, results_path(restaurant: fr.restaurant.name), html_options = {style: "text-decoration:none; background-color:transparent; color: #757575;", onmouseover: "this.style.color = '#FF7474';", onmouseout:"this.style.color = '#757575';"} %>
+        <span style="font-weight: 300; color: #757575;">
+          <% foodventure.foodventure_restaurants.each_with_index do |fr, index| %>
+            <% if index == 0 %>
+            <% else %>
+              ,
             <% end %>
-          </span></div>
-          <div class="col-md-3" style="padding:0;"><span class="pull-right go-btn" style="color: #FF7474; font-weight: 300; text-align:right;">
-            <%= link_to foodventure, html_options = {class: "go-btn", style: "text-decoration:none; color: #FF7474;", onmouseover: "this.style.color = '#212121';", onmouseout: "this.style.color='#FF7474';"} do %>
-                READ MORE
-              <% end %>
-            </span></div>
-        </div>
+            <%= link_to fr.restaurant.name, results_path(restaurant: fr.restaurant.name), html_options = {style: "text-decoration:none; background-color:transparent; color: #757575;", onmouseover: "this.style.color = '#FF7474';", onmouseout:"this.style.color = '#757575';"} %>
+          <% end %>
+        </span>
+        <span class="pull-right go-btn" style="color: #FF7474; font-weight: 300; text-align:right;">
+          <%= link_to foodventure, html_options = {class: "go-btn", style: "text-decoration:none; color: #FF7474;;", onmouseover: "this.style.color = '#212121';", onmouseout: "this.style.color='#FF7474';"} do %>
+              READ MORE
+          <% end %>
+        </span>
       </div>
     </div>
   <% end %>
   </div>
   <!-- end of first row -->
   <!-- next rows -->
-  <div class="row" style="padding-left: 4vw; padding-right: 0vw;">
+  <div class="row foodventures-row">
     <% @count = @foodventures.count - 3 %>
     <% @exclude = [@foodventures.count, @foodventures.count - 1, @foodventures.count - 2] %>
     <%= render @foodventures.order('created_at DESC') %>

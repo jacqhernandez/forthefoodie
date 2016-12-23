@@ -62,3 +62,5 @@ dapat sa dulo ung footer even if 2 short
 mas fun na labels for address and recommended dishes
 
 way for people to get ano ibig sabihin ng foodventures/in our bellies, siguro sa ilalim nung label sa navbar (like sa ilalim ng in our bellies: food porn)
+
+em and rem!
