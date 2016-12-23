@@ -37,8 +37,7 @@ select:focus{
 }
 .navbar-menu-icon, .navbar-search-icon{
   color: #FF7474; 
-  font-size: 3.5em; 
-  margin-top: -1.25rem;
+  font-size: 2em;
 }
 .navbar-menu-icon:hover, .navbar-search-icon:hover{
   cursor: pointer;
@@ -98,7 +97,7 @@ select:focus{
     width: 48%;
   }
 }
-@media screen and (max-width: 599px) {
+/*@media screen and (max-width: 599px) { if with tiny borders on phone
   .foodventures-top{
     width: 96%;
     padding-top: 4rem;
@@ -108,7 +107,32 @@ select:focus{
     font-size: 1.25em;
     padding-top: 4rem;
   }
+}*/
+@media screen and (max-width: 599px) {/* if no borders on phone*/
+  .foodventures-row{
+    padding-left: 0vw;
+  }
+  .foodventures-top{
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 4rem;
+  }
+  .foodventures-others{
+    width: 100%;
+    padding-top: 4rem;
+    font-size: 1.25em;
+    padding-left: 0;
+  }
+  .foodventures-description-row2{
+    padding-left: 1.5rem;
+  }
+  .foodventures-readmore{
+    padding-right: 1.5rem;
+  }
 }
+
+
 
 /* ----- NEW ---- */
 
@@ -169,26 +193,3 @@ select:focus{
 }
 
 
-/*@media screen and (max-width: 599px) { if no borders on phone
-  .foodventures-row{
-    padding-left: 0vw;
-  }
-  .foodventures-top{
-    width: 100%;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 38px;
-  }
-  .foodventures-others{
-    width: 100%;
-    padding-top: 38px;
-    font-size: 1.25em;
-    padding-left: 0vw;
-  }
-  .foodventures-description-row2{
-    padding-left: 1.5rem;
-  }
-  .foodventures-readmore{
-    padding-right: 1.5rem;
-  }
-}*/
