@@ -55,6 +55,13 @@ select:focus{
   height: 7rem;
   margin-top: -4.5rem;
 }
+.btn-close, .btn-close:active, .btn-close:visited{
+  color: white;
+  font-size: 2.5em;
+  background: transparent;
+  border:none;
+  outline:none;
+}
 @media screen and (max-width: 1089px){
   .navbar-search{
     display:none;
@@ -72,6 +79,9 @@ select:focus{
   .navbar-menu-icon{
     display: none;
   }
+  .cbp-spmenu-left.cbp-spmenu-open{
+    left: -35rem;
+  }
 }
 @media screen and (max-width: 939px){
   .navbar-menu{
@@ -87,8 +97,16 @@ select:focus{
     height: 5.1rem;
     margin-top: -2rem;
   }
-  .navbar-menu-icon, .navbar-search-icon{
+  .navbar-menu-icon, .navbar-search-icon, .btn-close{
     font-size: 1.5em;
+  }
+  .cbp-spmenu-vertical{
+    width: 25rem;
+  }
+  .cbp-spmenu-top{
+    min-height: 5rem;
+    /*border-bottom: 1px solid #757575;
+    padding-bottom: 1.5rem;*/
   }
 }
 

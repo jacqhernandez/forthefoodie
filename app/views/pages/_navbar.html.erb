@@ -1,6 +1,12 @@
-<div class="header">
+<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-hamburger" style="">
+  <div class="cbp-spmenu-top">
+    <button id="cbp-spmenu-hamburger-close" class="btn-close"><i class="fa fa-times" aria-hidden="true"></i></button>
+  </div>
+</nav>
+
+  <div class="header">
   <!-- <span style="color:white; font-weight: 400; font-size: 15px;">SEARCH DISH BY</span> -->
-  <i class="fa fa-bars navbar-menu-icon" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <i class="fa fa-bars navbar-menu-icon" aria-hidden="true" id="showHamburgerMenu"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <i class="fa fa-search navbar-search-icon" aria-hidden="true"></i>
   <div class="navbar-search">
     <select class="pull-left" id="category" name="category" style="background-color: transparent; border:none; font-weight: 300; color:#FF7474; font-size: 15px;">
@@ -153,9 +159,11 @@ outline:none;
 $( window ).scroll(function() {
   if ($(document).scrollTop() > 50){
     $( ".header" ).css( "border-bottom", "3px solid #757575" );
+    // $( ".cbp-spmenu-top" ).css( "border-bottom", "3px solid #757575" );
   }
   else{
     $( ".header" ).css( "border-bottom", "1px solid #757575" );
+    // $( ".cbp-spmenu-top" ).css( "border-bottom", "1px solid #757575" );
   }
 });
 </script>
