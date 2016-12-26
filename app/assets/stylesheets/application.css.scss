@@ -24,7 +24,16 @@ body {
 
 
 /* ----- HEADER ----- */
-
+.header {
+  background-color:white; 
+  min-height: 9rem; 
+  padding: 0 2.5rem; 
+  padding-top: 3.5rem; 
+  border-bottom: 1px solid #757575; 
+  position:fixed; 
+  z-index: 2; 
+  width: 100%;
+}
 input:focus { 
     border: none;
     outline: none;
@@ -69,9 +78,26 @@ select:focus{
     display: none;
   }
 }
+@media screen and (max-width: 599px) { /*if with tiny borders on phone*/
+  .header {
+    min-height: 5rem;
+    padding-bottom: 1.5rem;
+  }
+  .navbar-logo{
+    height: 5.1rem;
+    margin-top: -2rem;
+  }
+  .navbar-menu-icon, .navbar-search-icon{
+    font-size: 1.5em;
+  }
+}
 
 
 /* ----- FOODVENTURES INDEX ---- */
+.foodventures-container{
+  padding-top: 10rem; 
+  padding-bottom: 5rem;
+}
 .foodventures-row{
   padding-left: 4vw;
   padding-right: 0;
@@ -98,6 +124,9 @@ select:focus{
   }
 }
 @media screen and (max-width: 599px) { /*if with tiny borders on phone*/
+  .foodventures-container{
+    padding-top: 8rem;
+  }
   .foodventures-top{
     width: 96%;
     padding-left: 2.5rem;
